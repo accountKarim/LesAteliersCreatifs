@@ -17,56 +17,56 @@ class MembreType extends AbstractType
     {
         $builder
             ->add('nom', TextType::class, [
-                'required' => true,
+                'required' => false,
                 'label' => "Nom",
                 'attr' => [
                     'placeholder' => "Saisissez votre Nom"
                 ]
             ])
             ->add('prenom', TextType::class, [
-                'required' => true,
+                'required' => false,
                 'label' => "Prénom",
                 'attr' => [
                     'placeholder' => "Saisissez votre prénom"
                 ]
             ])
             ->add('email', EmailType::class, [
-                'required' => true,
+                'required' => false,
                 'label' => "Email",
                 'attr' => [
                     'placeholder' => "Saisissez votre Email"
                 ]
             ])
             ->add('mdp', PasswordType::class, [
-                'required' => true,
+                'required' => false,
                 'label' => "Mot de passe",
                 'attr' => [
                     'placeholder' => "Saisissez votre mot de passe"
                 ]
             ])
             ->add('adresse', TextType::class, [
-                'required' => true,
+                'required' => false,
                 'label' => "Adresse",
                 'attr' => [
                     'placeholder' => "Saisissez votre adresse"
                 ]
             ])
             ->add('ville', TextType::class, [
-                'required' => true,
+                'required' => false,
                 'label' => "Ville",
                 'attr' => [
                     'placeholder' => "Saisissez une ville"
                 ]
             ])
             ->add('codePostal', IntegerType::class, [
-                'required' => true,
+                'required' => false,
                 'label' => "Code postal",
                 'attr' => [
                     'placeholder' => "Saisissez votre code postal"
                 ]
             ])
             ->add('tel', IntegerType::class, [
-                'required' => true,
+                'required' => false,
                 'label' => "Télèphone",
                 'attr' => [
                     'placeholder' => "Saisissez votre numéro de télèphone"

@@ -3,10 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MembresRepository")
+ * @UniqueEntity("email")
  */
 class Membres implements UserInterface
 {
@@ -19,41 +22,78 @@ class Membres implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Vous devez renseigner votre nom")
+     * @Assert\Length(
+     *     max="55",
+     *     maxMessage="Votre nom ne doit pas depasser les 55 caracteres"
+     * )
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=55)
+     * @Assert\NotBlank(message="Vous devez renseigner votre prenom")
+     * @Assert\Length(
+     *     max="55",
+     *     maxMessage="Votre prenom ne doit pas depasser les 55 caracteres"
+     * )
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Vous devez renseigner votre email")
+     * @Assert\Email(message="Votre adresse mail est incorect")
+     * @Assert\Length(
+     *     max="55",
+     *     maxMessage="Votre adresse mail ne doit pas depasser les 55 caracteres"
+     * )
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Vous devez renseigner un mot de passe")
+     * @Assert\Length(
+     *     max="255",
+     *     maxMessage="Votre mot de passe ne doit pas depasser les 255 caracteres",
+     *     min="5",
+     *     minMessage="Votre mot de passe doit avoir au minimum plus de 5 caracteres"
+     * )
      */
     private $mdp;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="vous devez renseigner votre adresse")
+     * @Assert\Length(
+     *     max="255",
+     *     maxMessage="Ce champ ne doit pas depaser les 255 caracteres",
+     * )
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank(message="Vous devez renseigner votre ville")
      */
     private $ville;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Vous devez renseigner votre code postal")
+     * @Assert\Length(
+     *     max="5",
+     *     maxMessage="Votre code postal ne doit pas depaser 5 caracteres",
+     *     min="5",
+     *     minMessage="Votre code postal doit avoir 5 caracteres"
+     * )
      */
     private $codePostal;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Vous devez renseigner votre numero de télèphone")
      */
     private $tel;
 
@@ -195,6 +235,8 @@ class Membres implements UserInterface
     public function __construct()
     {
         $this->creatted_at = new \DateTime();
+
+        $this->role = ['ROLE_USER'];
     }
 
 
@@ -238,6 +280,7 @@ class Membres implements UserInterface
      */
     public function getSalt()
     {
+        return null;
     }
 
     /**
@@ -245,9 +288,7 @@ class Membres implements UserInterface
      *
      * @return string The username
      */
-    public function getUsername()
-    {
-    }
+    public function getUsername(){}
 
     /**
      * Removes sensitive data from the user.
@@ -255,7 +296,5 @@ class Membres implements UserInterface
      * This is important if, at any given point, sensitive information like
      * the plain-text password is stored on this object.
      */
-    public function eraseCredentials()
-    {
-    }
+    public function eraseCredentials(){}
 }
