@@ -2,6 +2,7 @@
 namespace App\Controller\Security;
 
 use http\Env\Request;
+use function Sodium\crypto_box_publickey_from_secretkey;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -18,4 +19,9 @@ class MembreController extends AbstractController {
     }
 
 
+    public function connexion()
+    {
+        
+    }
 }
+
