@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,15 +21,6 @@ class Categories
      */
     private $nom;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="categorie")
-     */
-    private $oeuvres;
-
-    public function __construct()
-    {
-        $this->oeuvres = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
