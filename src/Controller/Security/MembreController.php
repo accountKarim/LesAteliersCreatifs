@@ -46,7 +46,7 @@ class MembreController extends AbstractController {
     }
 
     /**
-     * @Route("/login,", name="security.login")
+     * @Route("/login", name="security_login")
      */
     public function login(AuthenticationUtils $authenticationUtils)
     {
@@ -58,7 +58,7 @@ class MembreController extends AbstractController {
 
         return $this->render('security/login.html.twig', array(
             'last_username' => $lastUsername,
-            'error'         => $error,
+            'error'         => $error
         ));
     }
 }
