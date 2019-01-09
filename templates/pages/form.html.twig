@@ -1,17 +1,13 @@
 {% extends 'layout.html.twig' %}
 
-
 {% block page_title %}
     Créer une Oeuvre
 {% endblock %}
 
 {% block stylesheets %}
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" integrity="sha256-AWdeVMUYtwLH09F6ZHxNgvJI37p+te8hJuSMo44NVm0=" crossorigin="anonymous" />
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 {% endblock %}
-
-
 
 {% block content %}
     <div class="container">
@@ -20,7 +16,6 @@
                 <h3>Créer une Oeuvre</h3>
                 {{ form(form, {attr:{novalidate:'novalidate'}}) }}
             </div>
-
         </div>
     </div>
 {% endblock %}
@@ -28,7 +23,7 @@
     <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" integrity="sha256-SUaao5Q7ifr2twwET0iyXVy0OVnuFJhGVi5E/dqEiLU=" crossorigin="anonymous"></script>
     <script>
-        CKEDITOR.replace( 'form[dimensions]' );
+        CKEDITOR.replace( 'oeuvre[dimensions]' );
     </script>
     <script>
         $('.dropify').dropify({
