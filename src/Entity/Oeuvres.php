@@ -57,12 +57,6 @@ class Oeuvres
      */
     private $statut;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Categories", inversedBy="oeuvres")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $categories;
-
     public function getId(): ?int
     {
         return $this->id;
