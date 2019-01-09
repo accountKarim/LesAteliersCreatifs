@@ -3,12 +3,14 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\MembresRepository")
+ * Membres
+ *
+ * @ORM\Table(name="membres")
+ * @ORM\Entity
  */
-class Membres implements UserInterface
+class Membres
 {
     /**
      * @ORM\Id()
@@ -18,54 +20,74 @@ class Membres implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255, nullable=false)
      */
     private $nom;
 
     /**
-     * @ORM\Column(type="string", length=55)
+     * @var string
+     *
+     * @ORM\Column(name="prenom", type="string", length=55, nullable=false)
      */
     private $prenom;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=false)
      */
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="mdp", type="string", length=255, nullable=false)
      */
     private $mdp;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="adresse", type="string", length=255, nullable=false)
      */
     private $adresse;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @var string
+     *
+     * @ORM\Column(name="ville", type="string", length=50, nullable=false)
      */
     private $ville;
 
     /**
-     * @ORM\Column(type="integer")
+     * @var int
+     *
+     * @ORM\Column(name="code_postal", type="integer", nullable=false)
      */
     private $codePostal;
 
     /**
-     * @ORM\Column(type="integer")
+     * @var int
+     *
+     * @ORM\Column(name="tel", type="integer", nullable=false)
      */
     private $tel;
 
     /**
-     * @ORM\Column(type="array")
+     * @var array
+     *
+     * @ORM\Column(name="role", type="array", length=0, nullable=false)
      */
-    private $role = [];
+    private $role;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     *
+     * @ORM\Column(name="creatted_at", type="datetime", nullable=false)
      */
-    private $creatted_at;
+    private $creattedAt;
 
     public function getId(): ?int
     {
@@ -182,80 +204,15 @@ class Membres implements UserInterface
 
     public function getCreattedAt(): ?\DateTimeInterface
     {
-        return $this->creatted_at;
+        return $this->creattedAt;
     }
 
-    public function setCreattedAt(\DateTimeInterface $creatted_at): self
+    public function setCreattedAt(\DateTimeInterface $creattedAt): self
     {
-        $this->creatted_at = $creatted_at;
+        $this->creattedAt = $creattedAt;
 
         return $this;
     }
 
-    public function __construct()
-    {
-        $this->creatted_at = new \DateTime();
-    }
 
-
-    /**
-     * Returns the roles granted to the user.
-     *
-     *     public function getRoles()
-     *     {
-     *         return array('ROLE_USER');
-     *     }
-     *
-     * Alternatively, the roles might be stored on a ``roles`` property,
-     * and populated in any number of different ways when the user object
-     * is created.
-     *
-     * @return (Role|string)[] The user roles
-     */
-    public function getRoles()
-    {
-        return $this->role;
-    }
-
-    /**
-     * Returns the password used to authenticate the user.
-     *
-     * This should be the encoded password. On authentication, a plain-text
-     * password will be salted, encoded, and then compared to this value.
-     *
-     * @return string The password
-     */
-    public function getPassword()
-    {
-    }
-
-    /**
-     * Returns the salt that was originally used to encode the password.
-     *
-     * This can return null if the password was not encoded using a salt.
-     *
-     * @return string|null The salt
-     */
-    public function getSalt()
-    {
-    }
-
-    /**
-     * Returns the username used to authenticate the user.
-     *
-     * @return string The username
-     */
-    public function getUsername()
-    {
-    }
-
-    /**
-     * Removes sensitive data from the user.
-     *
-     * This is important if, at any given point, sensitive information like
-     * the plain-text password is stored on this object.
-     */
-    public function eraseCredentials()
-    {
-    }
 }

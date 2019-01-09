@@ -2,10 +2,14 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\CategoriesRepository")
+ * Categories
+ *
+ * @ORM\Table(name="categories")
+ * @ORM\Entity
  */
 class Categories
 {
@@ -17,11 +21,25 @@ class Categories
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     * @ORM\Column(name="nom", type="string", length=255, nullable=false)
      */
     private $nom;
 
-    public function getId(): ?int
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Oeuvres", mappedBy="categorie")
+     */
+    private $oeuvres;
+
+    /**
+     * Categories constructor.
+     */
+    public function __construct()
+    {
+        $this->oeuvres = new ArrayCollection();
+    }
+
+    public function getId()
     {
         return $this->id;
     }
@@ -36,5 +54,21 @@ class Categories
         $this->nom = $nom;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOeuvres()
+    {
+        return $this->oeuvres;
+    }
+
+    /**
+     * @param mixed $oeuvres
+     */
+    public function setOeuvres($oeuvres): void
+    {
+        $this->oeuvres = $oeuvres;
     }
 }

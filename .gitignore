@@ -16,13 +16,3 @@
 ###> symfony/web-server-bundle ###
 /.web-server-pid
 ###< symfony/web-server-bundle ###
-.idea/workspace.xml
-.idea/symfony2.xml
-.idea/php.xml
-.idea/modules.xml
-.idea/misc.xml
-.idea/Les-ateliers-créatifs.iml
-.idea/encodings.xml
-.idea/dataSources.xml
-.idea/dataSources.local.xml
-.env
