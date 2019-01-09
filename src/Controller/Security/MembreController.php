@@ -16,7 +16,7 @@ class MembreController extends AbstractController {
      * @Route("/inscription", name="security.inscription")
      * @param Request $request
      * @param UserPasswordEncoderInterface $encoder
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function inscription(Request $request, UserPasswordEncoderInterface $encoder) {
 
