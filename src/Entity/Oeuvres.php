@@ -22,7 +22,8 @@ class Oeuvres
     private $titre;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Categories", inversedBy="Oeuvres")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $id_categories;
 
@@ -55,6 +56,12 @@ class Oeuvres
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $statut;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Categories", inversedBy="oeuvres")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $categories;
 
     public function getId(): ?int
     {
@@ -161,4 +168,8 @@ class Oeuvres
 
         return $this;
     }
+
+
+
+
 }
