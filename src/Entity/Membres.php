@@ -269,6 +269,7 @@ class Membres implements UserInterface
      */
     public function getPassword()
     {
+        return $this->mdp;
     }
 
     /**

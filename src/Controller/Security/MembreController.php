@@ -47,7 +47,9 @@ class MembreController extends AbstractController {
 
     /**
      * @Route("/login", name="security_login")
-    */
+     * @param AuthenticationUtils $authenticationUtils
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function login(AuthenticationUtils $authenticationUtils)
     {
         // get the login error if there is one
