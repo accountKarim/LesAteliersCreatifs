@@ -54,6 +54,7 @@ class Categories
         $this->nom = $nom;
 
         return $this;
+
     }
 
     /**

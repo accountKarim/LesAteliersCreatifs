@@ -3,12 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Membres
- *
- * @ORM\Table(name="membres")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\MembresRepository")
+ * @UniqueEntity("email")
  */
 class Membres
 {
@@ -20,58 +21,79 @@ class Membres
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="nom", type="string", length=255, nullable=false)
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Vous devez renseigner votre nom")
+     * @Assert\Length(
+     *     max="55",
+     *     maxMessage="Votre nom ne doit pas depasser les 55 caracteres"
+     * )
      */
     private $nom;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="prenom", type="string", length=55, nullable=false)
+     * @ORM\Column(type="string", length=55)
+     * @Assert\NotBlank(message="Vous devez renseigner votre prenom")
+     * @Assert\Length(
+     *     max="55",
+     *     maxMessage="Votre prenom ne doit pas depasser les 55 caracteres"
+     * )
      */
     private $prenom;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=255, nullable=false)
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Vous devez renseigner votre email")
+     * @Assert\Email(message="Votre adresse mail est incorect")
+     * @Assert\Length(
+     *     max="55",
+     *     maxMessage="Votre adresse mail ne doit pas depasser les 55 caracteres"
+     * )
      */
     private $email;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="mdp", type="string", length=255, nullable=false)
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Vous devez renseigner un mot de passe")
+     * @Assert\Length(
+     *     max="255",
+     *     maxMessage="Votre mot de passe ne doit pas depasser les 255 caracteres",
+     *     min="5",
+     *     minMessage="Votre mot de passe doit avoir au minimum plus de 5 caracteres"
+     * )
      */
     private $mdp;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="adresse", type="string", length=255, nullable=false)
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="vous devez renseigner votre adresse")
+     * @Assert\Length(
+     *     max="255",
+     *     maxMessage="Ce champ ne doit pas depaser les 255 caracteres",
+     * )
      */
     private $adresse;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="ville", type="string", length=50, nullable=false)
+     * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank(message="Vous devez renseigner votre ville")
      */
     private $ville;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="code_postal", type="integer", nullable=false)
+     * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Vous devez renseigner votre code postal")
+     * @Assert\Length(
+     *     max="5",
+     *     maxMessage="Votre code postal ne doit pas depaser 5 caracteres",
+     *     min="5",
+     *     minMessage="Votre code postal doit avoir 5 caracteres"
+     * )
      */
     private $codePostal;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="tel", type="integer", nullable=false)
+     * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Vous devez renseigner votre numero de télèphone")
      */
     private $tel;
 
@@ -214,5 +236,69 @@ class Membres
         return $this;
     }
 
+    public function __construct()
+    {
+        $this->creatted_at = new \DateTime();
 
+        $this->role = ['ROLE_USER'];
+    }
+
+
+    /**
+     * Returns the roles granted to the user.
+     *
+     *     public function getRoles()
+     *     {
+     *         return array('ROLE_USER');
+     *     }
+     *
+     * Alternatively, the roles might be stored on a ``roles`` property,
+     * and populated in any number of different ways when the user object
+     * is created.
+     *
+     * @return (Role|string)[] The user roles
+     */
+    public function getRoles()
+    {
+        return $this->role;
+    }
+
+    /**
+     * Returns the password used to authenticate the user.
+     *
+     * This should be the encoded password. On authentication, a plain-text
+     * password will be salted, encoded, and then compared to this value.
+     *
+     * @return string The password
+     */
+    public function getPassword()
+    {
+    }
+
+    /**
+     * Returns the salt that was originally used to encode the password.
+     *
+     * This can return null if the password was not encoded using a salt.
+     *
+     * @return string|null The salt
+     */
+    public function getSalt()
+    {
+        return null;
+    }
+
+    /**
+     * Returns the username used to authenticate the user.
+     *
+     * @return string The username
+     */
+    public function getUsername(){}
+
+    /**
+     * Removes sensitive data from the user.
+     *
+     * This is important if, at any given point, sensitive information like
+     * the plain-text password is stored on this object.
+     */
+    public function eraseCredentials(){}
 }

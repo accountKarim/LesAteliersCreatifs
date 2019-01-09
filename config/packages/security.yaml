@@ -1,14 +1,28 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    encoders:
+        App\Entity\Membres: bcrypt
+
     providers:
         in_memory: { memory: ~ }
+        membres_provider :
+            entity:
+                class: App\Entity\Membres
+                property: email
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: true
+            form_login:
+                login_path: security_login
+                check_path: security_login
+                default_target_path: page.home
+                always_use_default_target_path: true
 
+            provider: membres_provider
             # activate different ways to authenticate
 
             # http_basic: true
@@ -22,3 +36,4 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+
