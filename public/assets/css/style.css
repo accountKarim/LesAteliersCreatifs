@@ -5,7 +5,7 @@ html {
 /* *********** Body background ************** */
 
 body {
-    background-image: url("./images/Voyage-Acrylique-45x35cm-non-protegee.jpg");
+    background-image: url("../images/Voyage-Acrylique-45x35cm-non-protegee.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     font-size: 2rem;
