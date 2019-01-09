@@ -46,7 +46,7 @@ class MembreController extends AbstractController {
     }
 
     /**
-     * @Route("/login,", name="security.login")
+     * @Route("/login", name="security.login")
      */
     public function login(AuthenticationUtils $authenticationUtils)
     {
