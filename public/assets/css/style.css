@@ -64,3 +64,16 @@ div.fird_p_index {
     border:solid black .5rem;
 }
 
+/* *********** Form input et btn ************** */
+
+input.form-control {
+    padding: 1rem;
+    font-size: 14px;
+    border-radius: 6px;
+}
+
+.btn {
+    padding: 11px;
+    font-size: 17px;
+    border-radius: 5px;
+}
