@@ -16,6 +16,11 @@
                 <h3>Créer une Oeuvre</h3>
                 {{ form(form, {attr:{novalidate:'novalidate'}}) }}
             </div>
+            <div class="col-md-8 col-sm-12">
+                {% set oeuvres = oeuvres_repository.findAll() %}
+                {% for oeuvre in oeuvres %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}

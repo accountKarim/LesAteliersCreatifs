@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -71,5 +72,28 @@ class Categories
     public function setOeuvres($oeuvres): void
     {
         $this->oeuvres = $oeuvres;
+    }
+
+    public function addOeuvre(Oeuvres $oeuvre): self
+    {
+        if (!$this->oeuvres->contains($oeuvre)) {
+            $this->oeuvres[] = $oeuvre;
+            $oeuvre->setCategorie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOeuvre(Oeuvres $oeuvre): self
+    {
+        if ($this->oeuvres->contains($oeuvre)) {
+            $this->oeuvres->removeElement($oeuvre);
+            // set the owning side to null (unless already changed)
+            if ($oeuvre->getCategorie() === $this) {
+                $oeuvre->setCategorie(null);
+            }
+        }
+
+        return $this;
     }
 }
