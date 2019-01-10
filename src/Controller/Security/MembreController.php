@@ -13,6 +13,7 @@ class MembreController extends AbstractController {
 
 
     /**
+     * Inscription d'un membre
      * @Route("/register", name="security_register")
      * @param Request $request
      * @param UserPasswordEncoderInterface $encoder
@@ -33,6 +34,8 @@ class MembreController extends AbstractController {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($membre);
             $entityManager->flush();
+            // message flash de success
+            $this->addFlash('success', 'Vous êtes inscrit vous pouvez maintenant vous connecter');
             // Quand l'utilisateur et inscrit en le rediriger ver la page de connection
             return $this->redirectToRoute('security_login');
         }
@@ -45,6 +48,7 @@ class MembreController extends AbstractController {
     }
 
     /**
+     * Connection d'un membre
      * @Route("/login", name="security_login")
      * @param AuthenticationUtils $authenticationUtils
      * @return \Symfony\Component\HttpFoundation\Response
@@ -62,4 +66,13 @@ class MembreController extends AbstractController {
             'error'         => $error
         ));
     }
+
+    /**
+     * Déconnexion d'un Membre
+     * @Route("/logout", name="security_logout")
+     */
+    public function logout()
+    {
+    }
+
 }

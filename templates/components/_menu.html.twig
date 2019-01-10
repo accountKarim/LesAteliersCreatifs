@@ -42,8 +42,14 @@
                     <i class="fas fa-user-circle"></i>
                 </a>
                 <div class="dropdown-menu compte" aria-labelledby="navbarDropdown">
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <a class="dropdown-item" href="#">Mon profil</a>
+                    <a class="dropdown-item" href="#">Mes commandes</a>
+                    <a class="dropdown-item" href="{{ path('security_logout') }}">Se deconnecter</a>
+                    {% else %}
                     <a class="dropdown-item" href="{{ path('security_register') }}">S'inscrire</a>
                     <a class="dropdown-item" href="{{ path('security_login') }}">Se connecter</a>
+                    {% endif %}
             </li>
         </ul>
 
