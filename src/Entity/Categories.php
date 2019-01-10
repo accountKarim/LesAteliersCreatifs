@@ -20,7 +20,16 @@ class Categories
      * @ORM\Column(type="string", length=255)
      */
     private $nom;
-
+    
+     /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Oeuvres", mappedBy="Categories")
+     */
+    private $oeuvres;
+    
+    public function __construct()
+    {
+        $this->oeuvres = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
