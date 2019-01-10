@@ -81,7 +81,8 @@ class Oeuvres
 
     public function setIdCategories(int $id_categories): self
     {
-        $this->id_categories = $id_categories;
+        $this->id_categories = $
+        ;
 
         return $this;
     }

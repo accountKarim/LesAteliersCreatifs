@@ -45,6 +45,10 @@ nav div ul li div.compte {
     margin-left: -6rem;
 }
 
+nav ul li div.categories-gallerie {
+    width: 20rem;
+}
+
 /* *********** Contenu page d'acceuil ************** */
 
 p {

@@ -16,20 +16,29 @@
             <li class="nav-item mr-5">
                 <a class="nav-link" href="#">Biographie</a>
             </li>
+
+
+
             <li class="nav-item dropdown mr-5">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Galerie
                 </a>
-                <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu categories-gallerie" aria-labelledby="navbarDropdown">
                     {% for categorie in categories %}
-                        <li>
-                            <a href="{{ path('index_categories', {
-                                categorie: categories.slug
-                            }) }}">{{ categorie.name }}</a>
-                        </li>
-                    {% endfor %}
+                <a class="p-2 dropdown-item" href="#">{{ categorie.nom }}<br></a>
+            {% endfor %}
+
+                    {#<a class="dropdown-item" href="#">Calligraphie</a>
+                    <a class="dropdown-item" href="#">Abstrait </a>
+                    <a class="dropdown-item" href="#">Les Fétiches </a>
+                    <a class="dropdown-item" href="#">Les Fusains et Crayons </a>
+                    <a class="dropdown-item" href="#">Paysages </a>#}
 
             </li>
+
+
+
+
             <li class="nav-item dropdown mr-5">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Boutique

@@ -9,7 +9,34 @@
 namespace App\Controller\Oeuvres;
 
 
-class CategoriesController
+use App\Entity\Categories;
+use App\Entity\Oeuvres;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\MakerBundle\Doctrine;
+
+/**
+ * @method getDoctrine()
+ */
+class CategoriesController extends AbstractController
 {
 
+
+    #public function showOeuvre(){
+     #   $oeuvre = $this->getDoctrine()
+      #      ->getRepository(Categories::class)
+       #     ->findAll()
+    #}
+    /**
+     * @Route("/gallerie/{id}", name="oeuvres")
+     */
+    public function showOuvres ()
+    {
+        $repository = $this->getDoctrine()
+            ->getManager()
+            ->getRepository(Categories::class');
+        $listOeuvres = $repository->findAll();
+    }
+    
 }
