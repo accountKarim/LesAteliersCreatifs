@@ -29,14 +29,17 @@ class CategoriesController extends AbstractController
        #     ->findAll()
     #}
     /**
-     * @Route("/gallerie/{id}", name="oeuvres")
+     * @Route("/gallerie/{nom}", name="oeuvres")
      */
-    public function showOuvres ()
+    public function showOuvres ($nom)
     {
-        $repository = $this->getDoctrine()
-            ->getManager()
-            ->getRepository(Categories::class');
-        $listOeuvres = $repository->findAll();
+        $categories = $this->getDoctrine()
+            ->getRepository(Categorie::class)
+            ->findOneBy(['nom' => $nom]);
+        
+        return $this->render('front/categorie.html.twig', [
+            'oeuvres' => $categories->getArticles()
+        ]);
     }
     
 }
