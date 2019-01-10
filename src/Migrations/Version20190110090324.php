@@ -8,14 +8,16 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190107134640 extends AbstractMigration
+final class Version20190110090324 extends AbstractMigration
 {
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('CREATE TABLE categories (id INT AUTO_INCREMENT NOT NULL, nom VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
+        $this->addSql('ALTER TABLE oeuvres CHANGE id_categories id_categories_id INT NOT NULL');
+        $this->addSql('ALTER TABLE oeuvres ADD CONSTRAINT FK_413EEE3E1C3AC5D2 FOREIGN KEY (id_categories_id) REFERENCES categories (id)');
+        $this->addSql('CREATE INDEX IDX_413EEE3E1C3AC5D2 ON oeuvres (id_categories_id)');
     }
 
     public function down(Schema $schema) : void
@@ -23,6 +25,8 @@ final class Version20190107134640 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('DROP TABLE categories');
+        $this->addSql('ALTER TABLE oeuvres DROP FOREIGN KEY FK_413EEE3E1C3AC5D2');
+        $this->addSql('DROP INDEX IDX_413EEE3E1C3AC5D2 ON oeuvres');
+        $this->addSql('ALTER TABLE oeuvres CHANGE id_categories_id id_categories INT NOT NULL');
     }
 }
