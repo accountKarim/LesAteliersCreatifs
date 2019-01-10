@@ -40,10 +40,19 @@ class Categories
 
     }
 
+     /**
+     * @return mixed
+     */
     public function getOeuvres()
     {
-        return $this->oeuvres();
-
+        return $this->oeuvres;
+    }
+    /**
+     * @param mixed $oeuvres
+     */
+    public function setOeuvres($oeuvres): void
+    {
+        $this->oeuvres = $oeuvres;
     }
 
 
