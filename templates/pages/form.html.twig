@@ -19,6 +19,40 @@
             <div class="col-md-8 col-sm-12">
                 {% set oeuvres = oeuvres_repository.findAll() %}
                 {% for oeuvre in oeuvres %}
+                    <h6 class ='text-center'>Nombre de produits dans la boutique: <span class="badge badge-info"><?=$result->rowCount(); ?></span>
+                    </h6>
+                    <table><tr>
+                            <?php for ($i=0; $i < $result->columnCount(); $i++):
+                            $colonne = $result->getColumnMeta($i);
+
+                            //debug($colonne);
+                            ?>
+                            <th class='alert alert-warning text-center'><?=$colonne['name']?></th>
+                            <?php endfor; ?>
+                            <th class='alert alert-warning text-center'>Modifier</th>
+                            <th class='alert alert-warning text-center'>Supprimer</th>
+                        </tr>
+                        <?php while($produits = $result->fetch(PDO::FETCH_ASSOC)):?>
+
+                        <tr>
+
+                            <?php foreach($produits as $key=>$value) :
+                            if ($key=='photo'):?>
+                            <td class='alert alert-warning text-center' ><img src="<?= $value?>" alt="" class='img-thumbnail'></td>
+                            <?php else:?>
+                            <td class='alert alert-warning text-center' ><?=$value?></td>
+
+                            <?php endif;
+endforeach;?>
+
+                            <td class='alert alert-warning text-center'> <a href="?action=modif&id_produit=<?=$produits['id_produit'] ?>"><i class="fas fa-edit"></i></a></td>
+
+                            <td class='alert alert-warning text-center'> <a href="?action=supp&id_produit=<?=$produits['id_produit'] ?>"><i class="fas fa-trash-alt"></i></a></td>
+                        </tr>
+
+                        <?php endwhile;?>
+
+                    </table>
                 {% endfor %}
             </div>
         </div>
