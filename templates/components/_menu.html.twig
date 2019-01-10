@@ -43,7 +43,7 @@
                 </a>
                 <div class="dropdown-menu compte" aria-labelledby="navbarDropdown">
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <a class="dropdown-item" href="#">Mon profil</a>
+                    <a class="dropdown-item" href="{{ path('page_profile') }}">Mon profil</a>
                     <a class="dropdown-item" href="#">Mes commandes</a>
                     <a class="dropdown-item" href="{{ path('security_logout') }}">Se deconnecter</a>
                     {% else %}
