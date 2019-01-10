@@ -273,6 +273,7 @@ class Membres
      */
     public function getPassword()
     {
+        return $this->mdp;
     }
 
     /**

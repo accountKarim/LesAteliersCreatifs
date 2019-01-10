@@ -3,13 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Oeuvres
- *
- * @ORM\Table(name="oeuvres")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\OeuvresRepository")
  */
 class Oeuvres
 {
@@ -22,82 +18,51 @@ class Oeuvres
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Vous devez saisir un titre!")
-     * @Assert\Length(
-     *     max="255",
-     *     maxMessage="Votre titre ne doit pas dépasser {{limit}} caracters!",
-     *     min="5",
-     *     minMessage="Votre titre moins de 5 caracters!"
-     * )
      */
     private $titre;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Categories" , inversedBy="oeuvres")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Categories", inversedBy="Oeuvres")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $categorie;
+    private $id_categories;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="dimensions", type="string", length=10, nullable=false)
-     * @Assert\NotBlank(message="Vous devez saisir un dimension!")
+     * @ORM\Column(type="string", length=10)
      */
     private $dimensions;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="techniques", type="text", length=0, nullable=false)
-     * @Assert\NotBlank(message="Vous devez saisir un technique!")
+     * @ORM\Column(type="text")
      */
     private $techniques;
 
     /**
-     * @ORM\Column(length=180)
-     * @Assert\Image(
-     *     mimeTypesMessage="Verifies le format de votre image!",
-     *     maxSize="1M", maxSizeMessage="Attention, votre image est trop lourde"
-     * )
+     * @ORM\Column(type="string", length=255)
      */
     private $photo;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="prix", type="integer", nullable=false)
+     * @ORM\Column(type="integer")
      */
     private $prix;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $dateImportAt;
+    private $dateImport_at;
 
     /**
-     * @var bool|null
-     *
-     * @ORM\Column(name="statut", type="boolean", nullable=true)
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $statut;
-
-    /**
-     * Oeuvres constructor.
-     * @param $dateImportAt
-     * @throws \Exception
-     */
-    public function __construct()
-    {
-        $this->dateImportAt = new \DateTime();
-    }
-
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getTitre()
+    public function getTitre(): ?string
     {
         return $this->titre;
     }
@@ -109,23 +74,19 @@ class Oeuvres
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCategorie()
+    public function getIdCategories(): ?int
     {
-        return $this->categorie;
+        return $this->id_categories;
     }
 
-    /**
-     * @param mixed $categorie
-     */
-    public function setCategorie($categorie): void
+    public function setIdCategories(int $id_categories): self
     {
-        $this->categorie = $categorie;
+        $this->id_categories = $id_categories;
+
+        return $this;
     }
 
-    public function getDimensions()
+    public function getDimensions(): ?string
     {
         return $this->dimensions;
     }
@@ -137,7 +98,7 @@ class Oeuvres
         return $this;
     }
 
-    public function getTechniques()
+    public function getTechniques(): ?string
     {
         return $this->techniques;
     }
@@ -149,19 +110,19 @@ class Oeuvres
         return $this;
     }
 
-    public function getPhoto()
+    public function getPhoto(): ?string
     {
         return $this->photo;
     }
 
-    public function setPhoto($photo): self
+    public function setPhoto(string $photo): self
     {
         $this->photo = $photo;
 
         return $this;
     }
 
-    public function getPrix()
+    public function getPrix(): ?int
     {
         return $this->prix;
     }
@@ -175,14 +136,19 @@ class Oeuvres
 
     public function getDateImportAt(): ?\DateTimeInterface
     {
-        return $this->dateImportAt;
+        return $this->dateImport_at;
     }
 
-    public function setDateImportAt(\DateTimeInterface $dateImportAt): self
+    public function setDateImportAt(\DateTimeInterface $dateImport_at): self
     {
-        $this->dateImportAt = $dateImportAt;
+        $this->dateImport_at = $dateImport_at;
 
         return $this;
+    }
+
+    public function __construct()
+    {
+        $this->dateImport_at = new \DateTime();
     }
 
     public function getStatut(): ?bool
@@ -196,6 +162,8 @@ class Oeuvres
 
         return $this;
     }
+
+
 
 
 }
