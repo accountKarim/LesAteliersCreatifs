@@ -8,14 +8,16 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190110090324 extends AbstractMigration
+final class Version20190114102228 extends AbstractMigration
 {
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE oeuvres CHANGE id_categories id_categories_id INT NOT NULL');
+        $this->addSql('ALTER TABLE oeuvres DROP FOREIGN KEY FK_413EEE3E9F34925F');
+        $this->addSql('DROP INDEX IDX_413EEE3E9F34925F ON oeuvres');
+        $this->addSql('ALTER TABLE oeuvres CHANGE id_categorie_id id_categories_id INT DEFAULT NULL');
         $this->addSql('ALTER TABLE oeuvres ADD CONSTRAINT FK_413EEE3E1C3AC5D2 FOREIGN KEY (id_categories_id) REFERENCES categories (id)');
         $this->addSql('CREATE INDEX IDX_413EEE3E1C3AC5D2 ON oeuvres (id_categories_id)');
     }
@@ -27,6 +29,8 @@ final class Version20190110090324 extends AbstractMigration
 
         $this->addSql('ALTER TABLE oeuvres DROP FOREIGN KEY FK_413EEE3E1C3AC5D2');
         $this->addSql('DROP INDEX IDX_413EEE3E1C3AC5D2 ON oeuvres');
-        $this->addSql('ALTER TABLE oeuvres CHANGE id_categories_id id_categories INT NOT NULL');
+        $this->addSql('ALTER TABLE oeuvres CHANGE id_categories_id id_categorie_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE oeuvres ADD CONSTRAINT FK_413EEE3E9F34925F FOREIGN KEY (id_categorie_id) REFERENCES categories (id)');
+        $this->addSql('CREATE INDEX IDX_413EEE3E9F34925F ON oeuvres (id_categorie_id)');
     }
 }

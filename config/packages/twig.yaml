@@ -4,3 +4,6 @@ twig:
     strict_variables: '%kernel.debug%'
     globals:
         categorie_repository: '@App\Repository\CategoriesRepository'
+        oeuvres_repository: '@App\Repository\OeuvresRepository'
+        contact_repository: '@App\Repository\ContactRepository'
+        membres_repository: '@App\Repository\MembresRepository'

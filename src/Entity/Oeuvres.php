@@ -3,9 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\OeuvresRepository")
+ * Oeuvres
+ *
+ * @ORM\Table(name="oeuvres")
+ * @ORM\Entity
  */
 class Oeuvres
 {
@@ -18,42 +22,82 @@ class Oeuvres
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Vous devez saisir un titre!")
+     * @Assert\Length(
+     *     max="255",
+     *     maxMessage="Votre titre ne doit pas dépasser {{limit}} caracters!",
+     *     min="5",
+     *     minMessage="Votre titre moins de 5 caracters!"
+     * )
      */
     private $titre;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Categories", inversedBy="Oeuvres")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Categories" , inversedBy="oeuvres")
      */
     private $id_categories;
 
     /**
-     * @ORM\Column(type="string", length=10)
+     * @return mixed
+     */
+    public function getIdCategories()
+    {
+        return $this->id_categories;
+    }
+
+    /**
+     * @param mixed $id_categories
+     */
+    public function setIdCategories($id_categories): void
+    {
+        $this->id_categories = $id_categories;
+    }
+
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dimensions", type="string", length=10, nullable=false)
+     * @Assert\NotBlank(message="Vous devez saisir un dimension!")
+     *
+     *
      */
     private $dimensions;
 
     /**
-     * @ORM\Column(type="text")
+     * @var string
+     *
+     * @ORM\Column(name="techniques",  length=20, nullable=false)
+     *
      */
     private $techniques;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(length=180)
+     * @Assert\Image(
+     *     mimeTypesMessage="Verifies le format de votre image!",
+     *     maxSize="5M", maxSizeMessage="Attention, votre image est trop lourde"
+     * )
      */
     private $photo;
 
     /**
-     * @ORM\Column(type="integer")
+     * @var int
+     *
+     * @ORM\Column(name="prix", type="integer", nullable=false)
      */
     private $prix;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $dateImport_at;
+    private $dateImportAt;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @var bool|null
+     *
+     * @ORM\Column(name="statut", type="boolean", nullable=true)
      */
     private $statut;
     
@@ -63,12 +107,23 @@ class Oeuvres
      */
     private $categories;
 
+    /**
+     * Oeuvres constructor.
+     * @param $dateImportAt
+     * @throws \Exception
+     */
+    public function __construct()
+    {
+        $this->dateImportAt = new \DateTime();
+    }
+
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getTitre(): ?string
+    public function getTitre()
     {
         return $this->titre;
     }
@@ -99,6 +154,9 @@ class Oeuvres
 
 
     public function getDimensions(): ?string
+
+
+    public function getDimensions()
     {
         return $this->dimensions;
     }
@@ -110,7 +168,7 @@ class Oeuvres
         return $this;
     }
 
-    public function getTechniques(): ?string
+    public function getTechniques()
     {
         return $this->techniques;
     }
@@ -122,19 +180,19 @@ class Oeuvres
         return $this;
     }
 
-    public function getPhoto(): ?string
+    public function getPhoto()
     {
         return $this->photo;
     }
 
-    public function setPhoto(string $photo): self
+    public function setPhoto($photo): self
     {
         $this->photo = $photo;
 
         return $this;
     }
 
-    public function getPrix(): ?int
+    public function getPrix()
     {
         return $this->prix;
     }
@@ -148,19 +206,14 @@ class Oeuvres
 
     public function getDateImportAt(): ?\DateTimeInterface
     {
-        return $this->dateImport_at;
+        return $this->dateImportAt;
     }
 
-    public function setDateImportAt(\DateTimeInterface $dateImport_at): self
+    public function setDateImportAt(\DateTimeInterface $dateImportAt): self
     {
-        $this->dateImport_at = $dateImport_at;
+        $this->dateImportAt = $dateImportAt;
 
         return $this;
-    }
-
-    public function __construct()
-    {
-        $this->dateImport_at = new \DateTime();
     }
 
     public function getStatut(): ?bool
