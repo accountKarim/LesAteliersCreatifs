@@ -2,9 +2,8 @@ twig:
     default_path: '%kernel.project_dir%/templates'
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
-    form_themes:
-        - 'bootstrap_3_layout.html.twig'
     globals:
+        categorie_repository: '@App\Repository\CategoriesRepository'
         oeuvres_repository: '@App\Repository\OeuvresRepository'
         contact_repository: '@App\Repository\ContactRepository'
         membres_repository: '@App\Repository\MembresRepository'

@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="App\Repository\MembresRepository")
  * @UniqueEntity("email")
  */
-class Membres
+class Membres implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -98,18 +98,14 @@ class Membres
     private $tel;
 
     /**
-     * @var array
-     *
-     * @ORM\Column(name="role", type="array", length=0, nullable=false)
+     * @ORM\Column(type="array")
      */
-    private $role;
+    private $role = [];
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="creatted_at", type="datetime", nullable=false)
+     * @ORM\Column(type="datetime")
      */
-    private $creattedAt;
+    private $creatted_at;
 
     public function getId(): ?int
     {
@@ -226,12 +222,12 @@ class Membres
 
     public function getCreattedAt(): ?\DateTimeInterface
     {
-        return $this->creattedAt;
+        return $this->creatted_at;
     }
 
-    public function setCreattedAt(\DateTimeInterface $creattedAt): self
+    public function setCreattedAt(\DateTimeInterface $creatted_at): self
     {
-        $this->creattedAt = $creattedAt;
+        $this->creatted_at = $creatted_at;
 
         return $this;
     }

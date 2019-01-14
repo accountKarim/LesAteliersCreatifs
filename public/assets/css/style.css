@@ -5,10 +5,18 @@ html {
 /* *********** Body background ************** */
 
 body {
-    background-image: url("../images/Voyage-Acrylique-45x35cm-non-protegee.jpg");
+    /* background-image: url("../images/Voyage-Acrylique-45x35cm-non-protegee.jpg"); */
     background-size: cover;
     background-repeat: no-repeat;
     font-size: 2rem;
+}
+
+img {
+    max-width: 50rem;
+}
+
+li, a {
+    list-style-type: none;
 }
 
 /* div.img img {
@@ -43,6 +51,10 @@ nav li div a {
 
 nav div ul li div.compte {
     margin-left: -6rem;
+}
+
+nav ul li div.categories-gallerie {
+    width: 20rem;
 }
 
 /* *********** Contenu page d'acceuil ************** */

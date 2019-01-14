@@ -13,12 +13,13 @@ class MembreController extends AbstractController {
 
 
     /**
-     * @Route("/inscription", name="security.inscription")
+     * @Route("/register", name="security_register")
      * @param Request $request
      * @param UserPasswordEncoderInterface $encoder
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function inscription(Request $request, UserPasswordEncoderInterface $encoder) {
+    public function inscription(Request $request, UserPasswordEncoderInterface $encoder)
+    {
 
         $membre = new Membres();
         $form = $this->createForm(MembreType::class, $membre);
@@ -33,12 +34,11 @@ class MembreController extends AbstractController {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($membre);
             $entityManager->flush();
-
-          // Quand l'utilisateur et inscrit en le rediriger ver la page de connection
-            return $this->redirectToRoute('security.inscription');
+            // Quand l'utilisateur et inscrit en le rediriger ver la page de connection
+            return $this->redirectToRoute('security_login');
         }
 
-        return $this->render("security/inscription.html.twig", [
+        return $this->render("security/register.html.twig", [
             // En créer la vue du formulaire d'inscription
             'form' => $form->createView()
         ]);
@@ -47,7 +47,9 @@ class MembreController extends AbstractController {
 
     /**
      * @Route("/login", name="security_login")
-    */
+     * @param AuthenticationUtils $authenticationUtils
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function login(AuthenticationUtils $authenticationUtils)
     {
         // get the login error if there is one

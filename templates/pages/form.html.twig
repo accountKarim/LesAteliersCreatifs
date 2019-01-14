@@ -66,7 +66,7 @@
                         </div>
 
                             <div class="col-md-10">
-                                {{ form_row(form.categorie) }}
+                                {{ form_row(form.id_categories) }}
                             </div>
                             <div class="col-md-2">
                                 {{ form_row(form.statut) }}
@@ -133,7 +133,7 @@
                             </div>
 
                             <div class="col-md-10">
-                                {{ form_row(form.categorie) }}
+                                {{ form_row(form.id_categories) }}
                             </div>
                             <div class="col-md-2">
                                 {{ form_row(form.statut) }}
@@ -175,7 +175,7 @@
                             <th scope="col">Photo</th>
                             <th scope="col">Prix</th>
                             <th scope="col">Statut</th>
-                            <th scope="col">Categorie</th>
+                            <th scope="col">Categories</th>
                             <th scope="col">Editer</th>
                             <th scope="col">Suprimer</th>
                         </tr>
@@ -204,7 +204,7 @@
                                    {{oeuvre.statut }}
                                </td>
                                <td>
-                                   {{oeuvre.categorie.nom }}
+                                   {{oeuvre.id_categories.nom }}
                                </td>
                                <td class='text-center'> <a href="{{ path('oeuvre_edit',{
                                        id: oeuvre.id

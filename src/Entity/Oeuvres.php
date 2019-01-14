@@ -35,7 +35,25 @@ class Oeuvres
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Categories" , inversedBy="oeuvres")
      */
-    private $categorie;
+    private $id_categories;
+
+    /**
+     * @return mixed
+     */
+    public function getIdCategories()
+    {
+        return $this->id_categories;
+    }
+
+    /**
+     * @param mixed $id_categories
+     */
+    public function setIdCategories($id_categories): void
+    {
+        $this->id_categories = $id_categories;
+    }
+
+
 
     /**
      * @var string
@@ -111,21 +129,7 @@ class Oeuvres
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCategorie()
-    {
-        return $this->categorie;
-    }
 
-    /**
-     * @param mixed $categorie
-     */
-    public function setCategorie($categorie): void
-    {
-        $this->categorie = $categorie;
-    }
 
     public function getDimensions()
     {

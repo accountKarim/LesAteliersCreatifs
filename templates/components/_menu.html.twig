@@ -1,7 +1,9 @@
 <!-- **************NAVIGATION*************** -->
+{% set categories = categorie_repository.findAll() %}
+
 
 <nav class="navbar navbar-expand-lg navbar-white bg-white">
-    <a class="navbar-brand" href="#">Les Ateliers créatifs de Chadia</a>
+    <a class="navbar-brand" href="{{ path('page_home') }}">Les Ateliers créatifs de Chadia</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,41 +11,44 @@
     <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav d-flex justify-content-end ">
             <li class="nav-item active mr-5">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ path('page_home') }}">Home <span class="sr-only">(current)</span></a>
             </li>
+
             <li class="nav-item mr-5">
                 <a class="nav-link" href="#">Biographie</a>
             </li>
+
             <li class="nav-item dropdown mr-5">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Galerie
                 </a>
-                <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Calligraphie</a>
-                    <a class="dropdown-item" href="#">Abstrait </a>
-                    <a class="dropdown-item" href="#">Les Fétiches </a>
-                    <a class="dropdown-item" href="#">Les Fusains et Crayons </a>
-                    <a class="dropdown-item" href="#">Paysages </a>
-
+                <div class="dropdown-menu categories-gallerie" aria-labelledby="navbarDropdown">
+                    {% for categorie in categories %}
+                        <a class="p-2 dropdown-item" href="#">{{ categorie.nom }}<br></a>
+                    {% endfor %}
             </li>
+
             <li class="nav-item dropdown mr-5">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="{{ path('oeuvre_new') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Boutique
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ path('oeuvre_new') }}">Acquérir une oeuvre</a>
                     <a class="dropdown-item" href="#">Panier</a>
             </li>
+
             <li class="nav-item mr-5">
-                <a class="nav-link" href="{{ path(('contact')) }}">Contact</a>
+                <a class="nav-link" href="{{ path('contact') }}">Contact</a>
             </li>
+
             <li class="nav-item dropdown ">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user-circle"></i>
                 </a>
                 <div class="dropdown-menu compte" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ path('security.inscription') }}">S'inscrire</a>
+                    <a class="dropdown-item" href="{{ path('security_register') }}">S'inscrire</a>
                     <a class="dropdown-item" href="{{ path('security_login') }}">Se connecter</a>
+                </div>
             </li>
         </ul>
 

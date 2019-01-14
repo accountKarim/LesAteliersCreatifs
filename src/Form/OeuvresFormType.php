@@ -79,8 +79,8 @@ class OeuvresFormType extends AbstractType
                 ]
             ])
 
-        ->add('categorie', EntityType::class,[
-            'label'=>"categorie",'data_class' => null,
+        ->add('id_categories', EntityType::class,[
+            'label'=>"id_categories",'data_class' => null,
             'class'=>Categories::class,
             'choice_label'=>"nom",
             'expanded'=>false,
