@@ -9,13 +9,22 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-sm-12">
-                <h3>Contact</h3>
-                {{ form(form, {attr:{novalidate:'novalidate'}}) }}
+            <div class="col-md-12 col-sm-12">
+
+                <div class="form_row">
+                    {#{{ form_label(form) }}#}
+                    {#{{ form_errors(form) }}#}
+                    {#{{ form_widget(form) }}#}
+                    {#{{ form_help(form) }}#}
+                    {{ form(form, {attr:{novalidate:'novalidate'}}) }}
+                </div>
             </div>
+
+
+        </div>
 
         </div>
     </div>

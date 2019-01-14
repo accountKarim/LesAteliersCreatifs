@@ -42,14 +42,16 @@ class Oeuvres
      *
      * @ORM\Column(name="dimensions", type="string", length=10, nullable=false)
      * @Assert\NotBlank(message="Vous devez saisir un dimension!")
+     *
+     *
      */
     private $dimensions;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="techniques", type="text", length=0, nullable=false)
-     * @Assert\NotBlank(message="Vous devez saisir un technique!")
+     * @ORM\Column(name="techniques",  length=20, nullable=false)
+     *
      */
     private $techniques;
 
@@ -57,7 +59,7 @@ class Oeuvres
      * @ORM\Column(length=180)
      * @Assert\Image(
      *     mimeTypesMessage="Verifies le format de votre image!",
-     *     maxSize="1M", maxSizeMessage="Attention, votre image est trop lourde"
+     *     maxSize="5M", maxSizeMessage="Attention, votre image est trop lourde"
      * )
      */
     private $photo;

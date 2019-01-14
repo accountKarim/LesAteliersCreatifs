@@ -5,9 +5,10 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
-    oeuvres_assets_dir: '%kernel.project_dir%/public/images/product'
+    oeuvres_assets_dir: '%kernel.project_dir%/public/assets/images'
 
 services:
+
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.

@@ -11,66 +11,366 @@
 
 {% block content %}
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-sm-12">
-                <h3>Créer une Oeuvre</h3>
-                {{ form(form, {attr:{novalidate:'novalidate'}}) }}
-            </div>
-            <div class="col-md-8 col-sm-12">
-                {% set oeuvres = oeuvres_repository.findAll() %}
-                {% for oeuvre in oeuvres %}
-                    <h6 class ='text-center'>Nombre de produits dans la boutique: <span class="badge badge-info"><?=$result->rowCount(); ?></span>
-                    </h6>
-                    <table><tr>
-                            <?php for ($i=0; $i < $result->columnCount(); $i++):
-                            $colonne = $result->getColumnMeta($i);
 
-                            //debug($colonne);
-                            ?>
-                            <th class='alert alert-warning text-center'><?=$colonne['name']?></th>
-                            <?php endfor; ?>
-                            <th class='alert alert-warning text-center'>Modifier</th>
-                            <th class='alert alert-warning text-center'>Supprimer</th>
-                        </tr>
-                        <?php while($produits = $result->fetch(PDO::FETCH_ASSOC)):?>
+    <div class="row">
+
+            <div class="col-md-3"><a href="/creer-une-oeuvre">Créer une Oeuvre</a>   </div>
+            <div class="col-md-3"><a href="/oeuvres">Oeuvres en boutique</a></div>
+            <div class="col-md-3"><a href="/membres">Members</a></div>
+            <div class="col-md-3"><a href="/messages">Contacts</a></div>
+    </div>
+            <div class="col-md-12 col-sm-12">
+
+
+                {% if  '/creer-une-oeuvre' in  app.request.uri  %}
+
+
+                <h1 class="text-center">Créer une Oeuvre</h1>
+
+                {% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+
+                {#{{ form(form, { 'attr': {'class': 'form-group align-items-center shadow p-3 mb-5 rounded', 'style':"background-color:#ececec;" , novalidate:'novalidate' } }) }}#}
+
+
+
+                {#{{ form_widget(form, { 'attr': {'class': 'form-group shadow p-3 mb-5 rounded', 'style':"background-color:#ececec;"  } }) }}#}
+                {{ form_start(form, { 'attr': {'class': 'form-group shadow p-3 mb-5 rounded', 'style':"background-color:#ececec;" , novalidate:'novalidate' } }) }}
+
+                <div class="row text-center">
+
+                    <div class="col-md-12">
+                                {#{{ form_errors(form) }}#}
+                                {{ form_row(form.titre) }}
+                            </div>
+                    {#</div >#}
+                    {#<div class="row">#}
+
+                        <div class="col-md-12">
+                            {{ form_row(form.photo) }}
+                        </div>
+                            <div class="col-md-4">
+
+                                {{ form_row(form.dimensions) }}
+
+                            </div>
+                            <div class="col-md-4">{{ form_row(form.techniques) }}</div>
+
+
+                            <div class="col-md-4">
+                               {{ form_row(form.prix) }}
+                            </div>
+
+                        <div class="col-md-4">
+
+                        </div>
+
+                            <div class="col-md-10">
+                                {{ form_row(form.categorie) }}
+                            </div>
+                            <div class="col-md-2">
+                                {{ form_row(form.statut) }}
+
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <button type="submit" class="btn bg-primary col-md-12">
+                                    {% if editMode %}
+                                        Enregistrer les modifications
+                                        {% else %}
+                                            Creer une Oeuvre
+                                    {% endif %}
+
+
+                                </button>
+
+                            </div>
+                    {{ form_rest(form) }}
+                    {{ form_end(form) }}
+                        </div>
+
+
+                {% endif %}
+            </div>
+
+                {% if '/oeuvre' in  app.request.uri  %}
+                    {% if  '/oeuvre/edit/' in  app.request.uri  %}
+
+
+                        <h1 class="text-center">Créer une Oeuvre</h1>
+
+                        {% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+                     {{ form_start(form, { 'attr': {'class': 'form-group shadow p-3 mb-5 rounded', 'style':"background-color:#ececec;" , novalidate:'novalidate' } }) }}
+
+                        <div class="row text-center">
+
+                            <div class="col-md-12">
+                                {#{{ form_errors(form) }}#}
+                                {{ form_row(form.titre) }}
+                            </div>
+                            {#</div >#}
+                            {#<div class="row">#}
+
+                            <div class="col-md-12">
+                                {{ form_row(form.photo) }}
+                            </div>
+                            <div class="col-md-4">
+
+                                {{ form_row(form.dimensions) }}
+
+                            </div>
+                            <div class="col-md-4">{{ form_row(form.techniques) }}</div>
+
+
+                            <div class="col-md-4">
+                                {{ form_row(form.prix) }}
+                            </div>
+
+                            <div class="col-md-4">
+
+                            </div>
+
+                            <div class="col-md-10">
+                                {{ form_row(form.categorie) }}
+                            </div>
+                            <div class="col-md-2">
+                                {{ form_row(form.statut) }}
+
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <button type="submit" class="btn bg-primary col-md-12">
+                                    {% if editMode %}
+                                        Enregistrer les modifications
+                                    {% else %}
+                                        Creer une Oeuvre
+                                    {% endif %}
+
+
+                                </button>
+
+                            </div>
+                            {{ form_rest(form) }}
+                            {{ form_end(form) }}
+                        </div>
+
+
+                    {% endif %}
+
+            <div class="col-md-12 col-sm-12">
+                    {% set oeuvres = oeuvres_repository.findAll() %}
+                    <h1 class ='text-center'>Nombre des Oeuvres en boutique </h1>
+
+                       <table class="table table-bordered text-white table-dark">
 
                         <tr>
 
-                            <?php foreach($produits as $key=>$value) :
-                            if ($key=='photo'):?>
-                            <td class='alert alert-warning text-center' ><img src="<?= $value?>" alt="" class='img-thumbnail'></td>
-                            <?php else:?>
-                            <td class='alert alert-warning text-center' ><?=$value?></td>
+                            <th scope="col">Id</th>
+                            <th scope="col">Titre</th>
+                            <th scope="col">Dimensions</th>
+                            <th scope="col">Techniques</th>
+                            <th scope="col">Photo</th>
+                            <th scope="col">Prix</th>
+                            <th scope="col">Statut</th>
+                            <th scope="col">Categorie</th>
+                            <th scope="col">Editer</th>
+                            <th scope="col">Suprimer</th>
+                        </tr>
+                           {% for oeuvre in oeuvres %}
+                           <tr>
+                               <td>
+                                   {{ oeuvre.id }}
+                               </td>
+                               <td>
+                                   {{oeuvre.titre }}
+                               </td>
+                               <td>
+                                   {{oeuvre.dimensions  }}
+                               </td>
+                               <td>
+                                   {{oeuvre.techniques }}
+                               </td>
+                               <td>
 
-                            <?php endif;
-endforeach;?>
+                                   <img class="img-fluid" src="{{ asset('assets/images/'~ oeuvre.photo) }}" alt="{{ oeuvre.titre}}">
+                               </td>
+                               <td>
+                                   {{oeuvre.prix }}
+                               </td>
+                               <td>
+                                   {{oeuvre.statut }}
+                               </td>
+                               <td>
+                                   {{oeuvre.categorie.nom }}
+                               </td>
+                               <td class='text-center'> <a href="{{ path('oeuvre_edit',{
+                                       id: oeuvre.id
+                                   }) }}"><i class="fas fa-edit"></i></a></td>
+                               <td class='text-center'> <a href="{{ path('delete_oeuvre',{
+                                       id: oeuvre.id
+                                   }) }}"><i class="fas fa-trash-alt"></i></a></td>
+                           </tr>
 
-                            <td class='alert alert-warning text-center'> <a href="?action=modif&id_produit=<?=$produits['id_produit'] ?>"><i class="fas fa-edit"></i></a></td>
+                           {% endfor %}
+                       </table>
 
-                            <td class='alert alert-warning text-center'> <a href="?action=supp&id_produit=<?=$produits['id_produit'] ?>"><i class="fas fa-trash-alt"></i></a></td>
+                    </div>
+                </div>
+                {% endif %}
+
+    {% if '/messages' in  app.request.uri   %}
+
+
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                {% set contacts = contact_repository.findAll() %}
+                <h1 class ='text-center'>Messages from contacts </h1>
+
+                <table class="table table-bordered text-white table-dark">
+
+                    <tr>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prenom</th>
+                        <th scope="col">Telephone</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Message</th>
+                        <th scope="col">Editer</th>
+                        <th scope="col">Suprimer</th>
+                    </tr>
+                    {% for contact in contacts %}
+                        <tr>
+                            <td>
+                                {{ contact.nom }}
+                            </td>
+                            <td>
+                                {{contact.prenom }}
+                            </td>
+                            <td>
+                                {{contact.telephone  }}
+                            </td>
+                            <td>
+                                {{contact.email }}
+                            </td>
+                            <td>
+                                {{contact.message }}
+                            </td>
+
+                            <td class='text-center'> <a href="#"><i class="fas fa-edit"></i></a></td>
+                            <td class='text-center'> <a href="{{ path('delete_message',{
+                                    id: contact.id
+                                }) }}"><i class="fas fa-trash-alt"></i></a></td>
                         </tr>
 
-                        <?php endwhile;?>
+                    {% endfor %}
+                </table>
 
-                    </table>
-                {% endfor %}
             </div>
         </div>
+    {% endif %}
+
+    {% if '/membres' in  app.request.uri   %}
+
+
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                {% set membres = membres_repository.findAll() %}
+                <h1 class ='text-center'>Messages from contacts </h1>
+
+                <table class="table table-bordered text-white table-dark">
+
+                    <tr>
+
+                        <th scope="col">id</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prenom</th>
+                        <th scope="col">Telephone</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">mdp</th>
+                        <th scope="col">adresse</th>
+                        <th scope="col">ville</th>
+                        <th scope="col">code_postal</th>
+                        <th scope="col">role</th>
+                        <th scope="col">creatted_at</th>
+                        <th scope="col">Editer</th>
+                        <th scope="col">Suprimer</th>
+                    </tr>
+                    {% for membre in membres %}
+                        <tr>
+                            <td>
+                                {{ membre.id }}
+                            </td>
+                            <td>
+                                {{ membre.nom }}
+                            </td>
+                            <td>
+                                {{membre.prenom }}
+                            </td>
+                            <td>
+                                {{membre.tel  }}
+                            </td>
+                            <td>
+                                {{membre.email }}
+                            </td>
+                            <td>
+                                {{membre.mdp }}
+                            </td>
+                            <td>
+                                {{ membre.adresse }}
+                            </td><td>
+                                {{ membre.ville }}
+                            </td>
+
+                            {#<td>#}
+                                {#{{ membre.code_postal }}#}
+                            {#</td>#}
+                            {#<td>#}
+                                {#{{ membre.role }}#}
+                            {#</td>#}
+                            {#<td>#}
+                                {#{{ membre.creatted_at | date("m/d/Y") }}#}
+                            {#</td>#}
+
+                            <td class='text-center'> <a href="#"><i class="fas fa-edit"></i></a></td>
+                            <td class='text-center'> <a href="{{ path('delete_message',{
+                                    id: membre.id
+                                }) }}"><i class="fas fa-trash-alt"></i></a></td>
+                        </tr>
+
+                    {% endfor %}
+                </table>
+
+            </div>
+        </div>
+    {% endif %}
+
     </div>
+
+
+
+
+
+
+
+
 {% endblock %}
 {% block final_javascripts %}
-    <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
+    {#<script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>#}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" integrity="sha256-SUaao5Q7ifr2twwET0iyXVy0OVnuFJhGVi5E/dqEiLU=" crossorigin="anonymous"></script>
-    <script>
-        CKEDITOR.replace( 'oeuvre[dimensions]' );
-    </script>
+    {#<script>#}
+        {#CKEDITOR.replace( 'oeuvre[dimensions]' );#}
+    {#</script>#}
     <script>
         $('.dropify').dropify({
             messages: {
-                default: 'Glissez-d&eacute;posez un fichier ici ou cliquez',
-                replace: 'Glissez-d&eacute;posez un fichier ou cliquez pour remplacer',
+                default: 'Glissez-d&eacute;posez une photo ici ou cliquez',
+                replace: 'Glissez-d&eacute;posez une photo ou cliquez pour remplacer',
                 remove:  'Supprimer',
-                error:   'D&eacute;sol&eacute;, le fichier est trop volumineux'
+                error:   'D&eacute;sol&eacute;, la photo est trop volumineux'
             }
         });
     </script>

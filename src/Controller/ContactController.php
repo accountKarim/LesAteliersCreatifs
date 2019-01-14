@@ -42,4 +42,24 @@ class ContactController extends AbstractController
 
 
     }
+
+    /**
+     * @Route("/oeuvre/delete/{id}", name="delete_message", methods={"GET","POST"})
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function delete($id): \Symfony\Component\HttpFoundation\RedirectResponse
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $contact = $entityManager->getRepository(Contact::class)->find($id);
+
+
+        $entityManager->remove($contact);
+
+        $entityManager->flush();
+
+        return $this->redirectToRoute('messages', [
+            'id' => $contact->getId()
+        ]);
+    }
 }
