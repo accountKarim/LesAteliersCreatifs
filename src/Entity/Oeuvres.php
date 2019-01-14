@@ -56,6 +56,12 @@ class Oeuvres
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $statut;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Categories", inversedBy="Oeuvres")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $categories;
 
     public function getId(): ?int
     {
@@ -169,7 +175,21 @@ class Oeuvres
         return $this;
     }
 
-
+    /**
+     * @return mixed
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+    /**
+     * @param mixed $categories
+     */
+    public function setCategories($categories): self
+    {
+        $this->categories = $categories;
+        return $this;
+    }
 
 
 }
