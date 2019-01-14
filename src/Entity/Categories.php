@@ -42,7 +42,7 @@ class Categories
 
     public function getOeuvres()
     {
-        return $this->oeuvres();
+        return $this->getOeuvres();
 
     }
 

@@ -14,29 +14,28 @@ use App\Entity\Oeuvres;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\MakerBundle\Doctrine;
+use Symfony\Bridge\Doctrine;
 
-/**
- * @method getDoctrine()
- */
+
 class CategoriesController extends AbstractController
 {
 
 
-    #public function showOeuvre(){
-     #   $oeuvre = $this->getDoctrine()
-      #      ->getRepository(Categories::class)
-       #     ->findAll()
-    #}
     /**
-     * @Route("/gallerie/{id}", name="oeuvres")
-     */
-    public function showOuvres ()
+     * @Route("/boutique", name="boutique")
+     * @return Response
+    */
+    public function showOeuvres ()
     {
         $repository = $this->getDoctrine()
-            ->getManager()
-            ->getRepository(Categories::class');
-        $listOeuvres = $repository->findAll();
+            ->getRepository(Oeuvres::class);
+        $listOeuvres = $repository->findBy([],['id_categories'=>'DESC']);
+
+        return $this->render('pages/boutique.html.twig', [
+            'oeuvres' => $listOeuvres
+        ]);
     }
+
+
     
 }

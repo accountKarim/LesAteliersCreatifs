@@ -74,18 +74,23 @@ class Oeuvres
         return $this;
     }
 
-    public function getIdCategories(): ?int
+    /**
+     * @return mixed
+     */
+    public function getIdCategories()
     {
         return $this->id_categories;
     }
 
-    public function setIdCategories(int $id_categories): self
+    /**
+     * @param mixed $id_categories
+     */
+    public function setIdCategories($id_categories): void
     {
-        $this->id_categories = $
-        ;
-
-        return $this;
+        $this->id_categories = $id_categories;
     }
+
+
 
     public function getDimensions(): ?string
     {

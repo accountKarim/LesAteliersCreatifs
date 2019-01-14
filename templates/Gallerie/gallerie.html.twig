@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+
+
+{% block body %}
+    {#{{ dump(oeuvres) }}#}
+    <ul>
+        {% for oeuvre in oeuvres %}
+
+            <li>
+                {{ oeuvre.titre }}
+            </li>
+
+            <li>
+                <img alt="" src="{{ asset ('assets/images/'~oeuvre.photo) }}" class="post-detail-img-left" />
+
+            </li>
+
+            <li>
+                {{ oeuvre.techniques }}
+            </li>
+
+            <li>
+                {{ oeuvre.dimensions }}
+            </li>
+
+            <li>
+                {{ oeuvre.prix }}
+            </li>
+
+            <li>
+                {{ oeuvre.statut }}
+            </li>
+            <br><br><br><br><br><br><br>
+
+        {% endfor %}
+    </ul>
+
+
+{% endblock %}
