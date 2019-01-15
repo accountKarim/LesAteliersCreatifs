@@ -1,10 +1,15 @@
-{% extends "base.html.twig" %}
+{% extends 'layout.html.twig' %}
 
 
 {% block body %}
 
-    <ul>
-        {% for oeuvre in oeuvres %}
+    {{ dump(app.session) }}
+
+
+
+       <ul class="thumbnails">
+
+        {% for oeuvre in panier %}
 
             <li>
                 {{ oeuvre.titre }}
@@ -12,7 +17,6 @@
 
             <li>
                 <img alt="" src="{{ asset ('assets/images/'~oeuvre.photo) }}" class="post-detail-img-left" />
-
             </li>
 
             <li>
@@ -30,17 +34,10 @@
             <li>
                 {{ oeuvre.statut }}
             </li>
-            <li>
-                <a href="{{ path('show_ouevre',{
-                                        'id': oeuvre.id
-                }) }}">show</a>
+        <button class="btn btn-primary"><a href="{{ path('removeInPanier',
+            'id': oeuvres.id) }}">Remove</a></button>
 
-            </li>
-            
-            <br><br><br><br><br><br><br>
-
+        <br><br><br><br><br><br><br>
         {% endfor %}
     </ul>
-
-
 {% endblock %}

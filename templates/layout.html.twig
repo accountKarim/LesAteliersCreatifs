@@ -26,7 +26,7 @@
 
 
 {% block body %}
-
+    {% set oeuvres = oeuvres_repository.findAll() %}
     <!--preload-->
     <div class="loader" id="page-loader">
         <div class="loading-wrapper">

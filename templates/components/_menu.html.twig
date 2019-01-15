@@ -24,16 +24,16 @@
                 </a>
                 <div class="dropdown-menu categories-gallerie" aria-labelledby="navbarDropdown">
                     {% for categorie in categories %}
-                        <a class="p-2 dropdown-item" href="#">{{ categorie.nom }}<br></a>
+                        <a class="p-2 dropdown-item" href="{{ path('front_categorie', {'nom':categorie.nom}) }}">{{ categorie.nom }}<br></a>
                     {% endfor %}
             </li>
 
             <li class="nav-item dropdown mr-5">
-                <a class="nav-link dropdown-toggle" href="{{ path('oeuvre_new') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Boutique
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ path('oeuvre_new') }}">Acquérir une oeuvre</a>
+                    <a class="dropdown-item" href="{{ path('boutique') }}">Acquérir une oeuvre</a>
                     <a class="dropdown-item" href="#">Panier</a>
             </li>
 

@@ -105,12 +105,31 @@ class Membres implements UserInterface
     /**
      * @ORM\Column(type="datetime")
      */
-    private $creatted_at;
+    private $creattedAt;
+
+    /**
+     * @return mixed
+     */
+    public function getCreattedAt()
+    {
+        return $this->creattedAt;
+    }
+
+    /**
+     * @param mixed $creattedAt
+     */
+    public function setCreattedAt($creattedAt): void
+    {
+        $this->creattedAt = $creattedAt;
+    }
+
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
+
 
     public function getNom(): ?string
     {
@@ -220,21 +239,11 @@ class Membres implements UserInterface
         return $this;
     }
 
-    public function getCreattedAt(): ?\DateTimeInterface
-    {
-        return $this->creatted_at;
-    }
 
-    public function setCreattedAt(\DateTimeInterface $creatted_at): self
-    {
-        $this->creatted_at = $creatted_at;
-
-        return $this;
-    }
 
     public function __construct()
     {
-        $this->creatted_at = new \DateTime();
+        $this->creattedAt = new \DateTime();
 
         $this->role = ['ROLE_USER'];
     }
