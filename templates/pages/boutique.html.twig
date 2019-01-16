@@ -1,39 +1,55 @@
 {% extends "base.html.twig" %}
 
+{% block stylesheets %}
+    <style>
+        .grid-sizer,
+        .grid-item { width: calc( (100% / 3) - 2rem); }
+    </style>
+{% endblock %}
 
 {% block body %}
-    {#{{ dump(oeuvres) }}#}
-    <ul>
-    {% for oeuvre in oeuvres %}
-
-        <li>
-            {{ oeuvre.titre }}
-        </li>
-
-        <li>
-            <img alt="" src="{{ asset ('assets/images/'~oeuvre.photo) }}" class="post-detail-img-left" />
-
-        </li>
-
-        <li>
-            {{ oeuvre.techniques }}
-        </li>
-
-        <li>
-            {{ oeuvre.dimensions }}
-        </li>
-
-        <li>
-            {{ oeuvre.prix }}
-        </li>
-
-        <li>
-            {{ oeuvre.statut }}
-        </li>
-        <br><br><br><br><br><br><br>
-
-    {% endfor %}
-    </ul>
-
-
+    <div class="container">
+        <div class="row grid">
+            <div class="grid-sizer"></div>
+            {% for oeuvre in oeuvres %}
+                <div class="col-lg-4 grid-item">
+                    <div class="card oeuvre-card">
+                        <img class="img-fluid" alt="{{ oeuvre.titre }}" src="{{ asset ('assets/images/'~oeuvre.photo) }}"/>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ oeuvre.titre }}</h5>
+                            <p class="card-text">
+                                <span>Technique :</span> {{ oeuvre.techniques }} <br>
+                                <span>Dimensions :</span> {{ oeuvre.dimensions }} <br>
+                                <span>Prix :</span> {{ oeuvre.prix }} euros T.T.C <br>
+                                <span>Disponibilité :</span> {{ oeuvre.statut }} <br>
+                            </p>
+                            <a class="btn btn-block btn-primary btn-ac"
+                               href="{{ path('addPanier',{'id': oeuvre.id }) }}">
+                                Ajouter au Panier
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
+
+{% block javascripts %}
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script>
+        $(function() {
+            var $grid = $('.grid').masonry({
+                itemSelector: '.grid-item',
+                columnWidth: '.grid-sizer',
+                percentPosition: true,
+                gutter: 15
+            });
+            $grid.imagesLoaded().progress( function() {
+                $grid.masonry('layout');
+            });
+        })
+    </script>
+{% endblock %}
+

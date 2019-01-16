@@ -29,7 +29,7 @@ class CategoriesController extends AbstractController
     {
         $repository = $this->getDoctrine()
             ->getRepository(Oeuvres::class);
-        $listOeuvres = $repository->findBy([],['id_categories'=>'DESC']);
+        $listOeuvres = $repository->findBy([],['categories'=>'DESC']);
 
         return $this->render('pages/boutique.html.twig', [
             'oeuvres' => $listOeuvres
