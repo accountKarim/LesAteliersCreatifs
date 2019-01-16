@@ -79,23 +79,23 @@ class PanierController extends AbstractController
         ]);
 //        clear();
     }
-
-    /**
-     * @Route("/remove/{id}", name="removeInPanier")
-     * @param SessionInterface $session
-     * @param Oeuvres $oeuvres
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function removeOeuvrePanier(SessionInterface $session, Oeuvres $oeuvres)
-    {
-        $session->remove($oeuvres->$id);
-        // remove array PHP
-        // search in array remove and save cart in session
-        $panier = $session->get('panier');
-        return $this->render('pages/panier.html.twig', [
-            "panier" => $panier
-        ]);
-    }
+//
+//    /**
+//     * @Route("/remove/{id}", name="removeInPanier")
+//     * @param SessionInterface $session
+//     * @param Oeuvres $oeuvres
+//     * @return \Symfony\Component\HttpFoundation\Response
+//     */
+//    public function removeOeuvrePanier(SessionInterface $session, Oeuvres $oeuvres)
+//    {
+//        $session->remove($oeuvres->$id);
+//        // remove array PHP
+//        // search in array remove and save cart in session
+//        $panier = $session->get('panier');
+//        return $this->render('pages/panier.html.twig', [
+//            "panier" => $panier
+//        ]);
+//    }
 
 
 
