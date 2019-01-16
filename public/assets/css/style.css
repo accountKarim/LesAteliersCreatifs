@@ -42,7 +42,7 @@ nav li div a {
 }
 
 nav div ul li div.compte {
-    margin-left: -8rem;
+    margin-left: -9rem;
 }
 
 /* *********** Contenu page d'acceuil ************** */
@@ -64,7 +64,7 @@ div.fird_p_index {
     border:solid black .5rem;
 }
 
-/* *********** Form input et btn ************** */
+/* *********** Form input & btn ************** */
 
 input.form-control {
     padding: 1rem;
@@ -76,4 +76,18 @@ input.form-control {
     padding: 11px;
     font-size: 17px;
     border-radius: 5px;
+}
+
+/* *********** message d'alert ************** */
+
+.alert {
+    border-radius: 5px;
+    font-size: 17px;
+    line-height: 4rem;
+}
+
+.alert button.close {
+    outline: none;
+    font-size: 33px;
+    font-weight: 600;
 }

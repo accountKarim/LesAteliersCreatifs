@@ -43,8 +43,11 @@
                 </a>
                 <div class="dropdown-menu compte" aria-labelledby="navbarDropdown">
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <a class="dropdown-item" href="{{ path('page_profile') }}">Mon profil</a>
-                    <a class="dropdown-item" href="#">Mes commandes</a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a class="dropdown-item" href="#!">Administration</a>
+                        {% endif %}
+                    <a class="dropdown-item" href="{{ path('security_profil') }}">Mon profil</a>
+                    <a class="dropdown-item" href="{{ path('page_orders') }}">Mes commandes</a>
                     <a class="dropdown-item" href="{{ path('security_logout') }}">Se deconnecter</a>
                     {% else %}
                     <a class="dropdown-item" href="{{ path('security_register') }}">S'inscrire</a>
