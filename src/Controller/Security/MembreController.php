@@ -95,8 +95,7 @@ class MembreController extends AbstractController {
 
         # Traitement des données POST
         $form->handleRequest($request);
-
-
+        
         # Vérification des données du Formulaire
         if ($form->isSubmitted() && $form->isValid()) {
 

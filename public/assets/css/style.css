@@ -91,3 +91,10 @@ input.form-control {
     font-size: 33px;
     font-weight: 600;
 }
+
+
+/* *********** Table ************** */
+
+table th {
+    font-size: 1.5rem;
+}
