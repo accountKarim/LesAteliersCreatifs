@@ -73,31 +73,51 @@ class PanierController extends AbstractController
 
         $panier = $session->get('panier');
 
-        dump($panier);
+//        dump($panier);
         return $this->render('pages/panier.html.twig', [
             "panier" => $panier
         ]);
 //        clear();
     }
 //
-//    /**
-//     * @Route("/remove/{id}", name="removeInPanier")
-//     * @param SessionInterface $session
-//     * @param Oeuvres $oeuvres
-//     * @return \Symfony\Component\HttpFoundation\Response
-//     */
-//    public function removeOeuvrePanier(SessionInterface $session, Oeuvres $oeuvres)
-//    {
-//        $session->remove($oeuvres->$id);
-//        // remove array PHP
-//        // search in array remove and save cart in session
-//        $panier = $session->get('panier');
-//        return $this->render('pages/panier.html.twig', [
-//            "panier" => $panier
-//        ]);
-//    }
 
+    /**
+     * @Route("/remove/{id}", name="removeInPanier")
+     * @param $id
+     * @param SessionInterface $session
+     * @param Oeuvres $oeuvres
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function removeOeuvrePanier($id, SessionInterface $session, Oeuvres $oeuvres)
+    {
+        $panier = $session->get('panier');
 
+        /**
+         * @var int $index
+         * @var Oeuvres $oeuvre
+         */
+        foreach ($panier as $index => $oeuvre) {
+            if ($oeuvre->getId() == $id) {
+                unset($panier[$index]);
+                break;
+            }
+        }
+
+        $session->set('panier', $panier);
+        return $this->redirectToRoute('panier');
+    }
+
+    /**
+     * @Route("/remove", name="removePanier")
+     * @param SessionInterface $session
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function removePanier( SessionInterface $session)
+    {
+        $session->remove('panier');
+        return $this->redirectToRoute('panier');
+
+    }
 
 
 

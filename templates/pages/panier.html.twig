@@ -3,9 +3,9 @@
 
 {% block body %}
 
-    {{ dump(app.session) }}
-
-
+    {#{{ dump(app.session('panier')) }}#}
+    {% if panier is not empty %}
+    <button class="btn btn-primary bg-danger"><a href="{{ path('removePanier') }}">RemoveAll</a></button>
 
        <ul class="thumbnails">
 
@@ -34,9 +34,17 @@
             <li>
                 {{ oeuvre.statut }}
             </li>
-        <button class="btn btn-primary"><a href="#">Remove</a></button>
+        <button class="btn btn-primary"><a href="{{ path('removeInPanier', {
+                'id': oeuvre.id
+            }) }}">Remove</a></button>
 
         <br><br><br><br><br><br><br>
         {% endfor %}
     </ul>
+
+    {% else %}
+        <div>
+               <h1>Panier est vide!</h1>
+        </div>
+    {% endif %}
 {% endblock %}
