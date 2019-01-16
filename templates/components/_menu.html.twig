@@ -21,13 +21,8 @@
                     Galerie
                 </a>
                 <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                    {% for categorie in categories %}
-                        <li>
-                            <a href="{{ path('index_categories', {
-                                categorie: categories.slug
-                            }) }}">{{ categorie.name }}</a>
-                        </li>
-                    {% endfor %}
+                    <a class="dropdown-item" href="#!">test</a>
+
 
             </li>
             <li class="nav-item dropdown mr-5">
