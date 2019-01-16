@@ -5,9 +5,8 @@ html {
 /* *********** Body background ************** */
 
 body {
-    /* background-image: url("../images/Voyage-Acrylique-45x35cm-non-protegee.jpg"); */
-    background-size: cover;
-    background-repeat: no-repeat;
+    /*background-image: url("../images/Voyage-Acrylique-45x35cm-non-protegee.jpg");
+    background-size: cover;*/
     font-size: 2rem;
 }
 
@@ -33,16 +32,34 @@ li, a {
 /* *********** Navigation-navbar ************** */
 
 nav {
-    border:solid black .5rem;
+    height: 10vh;
+    border-bottom: solid #9a7078 .5rem;
 }
 
-nav div ul li a {
-    font-family: 'Playball', cursive;
+.dropdown-item {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 300;
+    font-size: 1.8rem;
 }
 
 nav a.navbar-brand {
-    font-size: 2rem;
+    font-size: 3rem;
     font-family: 'Playball', cursive;
+    color: #9a7078;
+}
+
+.active {
+    color: #9a7078;
+}
+
+.nav-link {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 300;
+    color: #000;
+}
+
+.nav-link:hover {
+    color: #9a7078;
 }
 
 nav li div a {
@@ -61,7 +78,6 @@ nav ul li div.categories-gallerie {
 
 p {
     font-size: 2.5rem;
-
 }
 
 div.p_index {
@@ -70,10 +86,60 @@ div.p_index {
 }
 
 div.fird_p_index {
-    margin-top: 10rem;
     font-family: 'Allura', cursive;
-    background-color: white;
-    border:solid black .5rem;
+    border-top: solid #9a7078 .5rem;
+    color: #9a7078;
+    height: 10vh;
+}
+
+.oeuvre-card {
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid #9a7078;
+}
+
+.oeuvre-card .card-title {
+    font-family: 'Allura', cursive;
+    color: #9a7078;
+    text-align: center;
+    font-size: 3.5rem;
+}
+
+.oeuvre-card .card-text {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 300;
+    font-size: 2rem;
+    color: #191919;
+}
+
+.oeuvre-card .card-text > span {
+    color: #9a7078;
+    font-weight: 400;
+}
+
+.btn-ac {
+    background-color: #9a7078;
+    border: none;
+}
+
+.btn-ac:hover {
+    background-color: #715258;
+}
+
+.navbar {
+    margin-bottom: 5rem;
+}
+
+#carouselExampleIndicators {
+    margin-top: -5rem;
+}
+
+.carousel-item {
+    height: 100%;
+    min-height: 80vh;
+    background: no-repeat center center scroll;
+    background-size: cover;
 }
 
 /* *********** Form input et btn ************** */
@@ -88,4 +154,10 @@ input.form-control {
     padding: 11px;
     font-size: 17px;
     border-radius: 5px;
+}
+
+/* *********** Boutton "Ajouter au panier" page boutique ************** */
+
+div a.ajout_panier {
+    color: white;
 }
