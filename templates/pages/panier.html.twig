@@ -5,19 +5,27 @@
 
 {% block body %}
     <div class="container">
-    {#{{ dump(app.session('panier')) }}#}
+    {#{{ dump(app.session('_security_main')) }}#}
     {% if panier is not empty %}
 
-        <nav class="navbar sticky-top navbar-light bg-light">
-            <div class="col"></div>
+        <nav class="navbar navbar-light bg-light">
+            <div class="col">
+                <a class="navbar-brand text-info aPanier" href="{{ path('security_profil') }}">{{app.user.nom  }} {{app.user.prenom  }}</a>
+
+
+            </div>
             <div class="col"></div>
             <div class="col">
-                <a class="navbar-brand text-danger" href="{{ path('removePanier') }}">Vider le panier</a>
-                <a class="navbar-brand " href="{{ path('envoyeeCommande') }}">Acheter</a>
+                <a class="navbar-brand text-danger aPanier" href="{{ path('removePanier') }}">Vider le panier</a>
+                <a class="navbar-brand aPanier" href="#">Acheter</a>
 
             </div>
 
         </nav>
+
+        <p> </p>
+
+
         <div class="row">
 
 

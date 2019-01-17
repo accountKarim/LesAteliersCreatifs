@@ -1,4 +1,5 @@
-{% extends 'layout.html.twig' %}
+{% extends 'base.html.twig' %}
+
 
 {% block page_title %}
     Tableau de bord
@@ -18,7 +19,7 @@
         <div class="col-md-2"><a href="/oeuvres">Stock</a></div>
         <div class="col-md-2"><a href="/membres">Membres</a></div>
         <div class="col-md-2"><a href="/messages">Messages</a></div>
-        <div class="col-md-2"><a href="/{{ path('commande') }}">Commandes</a></div>
+        {#<div class="col-md-2"><a href="/{{ path('commande') }}">Commandes</a></div>#}
 
     </div>
             <div class="col-md-12 col-sm-12">
