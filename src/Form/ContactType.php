@@ -20,38 +20,45 @@ class ContactType extends AbstractType
             ->add('nom', TextType::class, [
                 'label'=>"Votre Nom: ",
                 'attr' =>[
-                    'class' => 'form-control', 'style' => 'margin-bottom:15px'
+                    'class' => 'form-control', 'style' => 'margin-bottom:15px',
+                    'placeholder' => "Saisissez votre Nom"
                 ]
             ])
             ->add('prenom', TextType::class, [
-                'label'=>"Votre Prenom: ",
+                'label'=>"Votre Prénom: ",
                 'attr' =>[
-                    'class' => 'form-control', 'style' => 'margin-bottom:15px'
+                    'class' => 'form-control', 'style' => 'margin-bottom:15px',
+                    'placeholder' => "Saisissez votre prénom"
                 ]
             ])
             ->add('telephone', TelType::class, [
-                'label'=>"Votre telephone: ",
+                'label'=>"Votre téléphone: ",
                 'attr' =>[
-                    'class' => 'form-control', 'style' => 'margin-bottom:15px'
+                    'class' => 'form-control', 'style' => 'margin-bottom:15px',
+                    'placeholder' => "Saisissez votre téléphone"
                 ]
             ])
             ->add('email', EmailType::class, [
                 'label'=>"Votre email: ",
                 'attr' =>[
-                    'class' => 'form-control', 'style' => 'margin-bottom:15px'
+                    'class' => 'form-control', 'style' => 'margin-bottom:15px',
+                    'placeholder' => "Saisissez votre email"
+
                 ]
             ])
             ->add('message', TextareaType::class, [
                 'label'=>"Votre message: ",
                 'attr' =>[
                     'class' => 'form-control',
-                    'rows'=>6
+                    'rows'=>6,
+                    'placeholder' => "Saisissez votre message"
+
                                     ]
             ])
             ->add('submit', SubmitType::class, [
-                'label'=>"Envoi message",
+                'label'=>"Envoyer",
                 'attr' =>[
-                    'class' => 'btn btn-primary', 'style' => 'margin-bottom:15px'
+                    'class' => 'btn btn-primary mt-5' , 'style' => 'margin-bottom:15px',
                 ]
 
             ] )
