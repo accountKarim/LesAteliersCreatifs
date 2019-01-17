@@ -18,6 +18,7 @@ class MembreController extends AbstractController {
 
     /**
      * Inscription d'un membre
+     * @Security("!is_granted('IS_AUTHENTICATED_FULLY')")
      * @Route("/register", name="security_register", methods={"GET", "POST"})
      * @param Request $request
      * @param UserPasswordEncoderInterface $encoder
@@ -54,6 +55,7 @@ class MembreController extends AbstractController {
 
     /**
      * Connection d'un membre
+     * @Security("!is_granted('IS_AUTHENTICATED_FULLY')")
      * @Route("/login", name="security_login")
      * @param AuthenticationUtils $authenticationUtils
      * @return \Symfony\Component\HttpFoundation\Response
@@ -81,6 +83,8 @@ class MembreController extends AbstractController {
     }
 
     /**
+     * Mot de passe oublier
+     * @Security("!is_granted('IS_AUTHENTICATED_FULLY')")
      * @Route("/forgot", name="security_forgot")
      * @param \Swift_Mailer $mailer
      * @param Request $request
@@ -110,7 +114,7 @@ class MembreController extends AbstractController {
 
                 $url = $this->generateUrl('security_forgotten_password', ['token' => $token], UrlGeneratorInterface::ABSOLUTE_URL);
 
-                $message = (new \Swift_Message('Réalisation de votre mot de passe'))
+                $message = (new \Swift_Message('Récupérer de votre mot de passe'))
                     ->setFrom('no-replay@lesatelierscreatifs.com')
                     ->setTo($user->getEmail())
                 ->setBody($this->render("mail/forgot_password.html.twig", ['url' => $url]),
@@ -135,6 +139,7 @@ class MembreController extends AbstractController {
     }
 
     /**
+     * @Security("!is_granted('IS_AUTHENTICATED_FULLY')")
      * @Route("/forgotten_password/{token}", name="security_forgotten_password")
      * @param Request $request
      * @param string $token

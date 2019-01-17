@@ -10,7 +10,7 @@ class HomeController extends AbstractController {
 
 
     /**
-     * @Route("/home", name="page_home")
+     * @Route("/", name="page_home")
      */
     public function index() {
 
@@ -20,8 +20,7 @@ class HomeController extends AbstractController {
         $carousel = $repository->findAll();
 
         return $this->render("pages/home.html.twig", [
-            'carousel'=>$carousel
-
+            'carousel' => $carousel
         ]);
 
 
