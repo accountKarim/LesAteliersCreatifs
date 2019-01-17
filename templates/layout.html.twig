@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <!-- Online Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700&subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700" rel="stylesheet">
+    <!-- Vender -->
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('css/normalize.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('css/owl.carousel.min.css') }}" rel="stylesheet"/>
+    <!-- Main CSS (SCSS Compile) -->
+    <link href=" {{ asset('css/main.css') }} " rel="stylesheet"/>
+    <!-- JavaScripts -->
+    <!--<script src="js/modernizr.js"></script>-->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="{{ asset('https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js') }}"></script>
+    <script src="{{ asset('https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js') }}"></script>
+    <![endif]-->
+{% endblock %}
+
+
+
+{% block body %}
+    {% set oeuvres = oeuvres_repository.findAll() %}
+    <!--preload-->
+    <div class="loader" id="page-loader">
+        <div class="loading-wrapper">
+        </div>
+    </div>
+
+    {% block content '' %}
+
+{% endblock %}
+
+{% block  javascripts %}
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
+    {% block final_javascripts %}
+    {% endblock %}
+{% endblock %}
+

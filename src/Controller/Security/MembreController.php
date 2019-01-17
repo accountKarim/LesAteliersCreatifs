@@ -21,9 +21,10 @@ class MembreController extends AbstractController {
      * @Route("/register", name="security_register", methods={"GET", "POST"})
      * @param Request $request
      * @param UserPasswordEncoderInterface $encoder
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function inscription(Request $request, UserPasswordEncoderInterface $encoder) {
+    public function inscription(Request $request, UserPasswordEncoderInterface $encoder)
+    {
 
         $membre = new Membres();
         $form = $this->createForm(MembreType::class, $membre);

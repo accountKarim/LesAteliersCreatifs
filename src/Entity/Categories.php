@@ -21,6 +21,26 @@ class Categories
      */
     private $nom;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Oeuvres", mappedBy="categories")
+     */
+    private $oeuvres;
+
+    /**
+     * @return mixed
+     */
+    public function getOeuvres()
+    {
+        return $this->oeuvres;
+    }
+
+    /**
+     * @param mixed $oeuvres
+     */
+    public function setOeuvres($oeuvres): void
+    {
+        $this->oeuvres = $oeuvres;
+    }
 
     public function getId(): ?int
     {
