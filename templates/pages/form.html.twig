@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block page_title %}
-    Créer une Oeuvre
+    Tableau de bord
 {% endblock %}
 
 {% block stylesheets %}
@@ -14,13 +14,13 @@
 
     <div class="row">
 
-            <div class="col-md-3"><a href="/creer-une-oeuvre">Créer une Oeuvre</a>   </div>
-            <div class="col-md-3"><a href="/oeuvres">Oeuvres en boutique</a></div>
-            <div class="col-md-3"><a href="/membres">Members</a></div>
-            <div class="col-md-3"><a href="/messages">Contacts</a></div>
+        <div class="col-md-2"><a href="/creer-une-oeuvre">Ajouter une Oeuvre</a>   </div>
+        <div class="col-md-2"><a href="/oeuvres">Stock</a></div>
+        <div class="col-md-2"><a href="/membres">Membres</a></div>
+        <div class="col-md-2"><a href="/messages">Messages</a></div>
+        <div class="col-md-2"><a href="/messages">Commandes</a></div>
     </div>
             <div class="col-md-12 col-sm-12">
-
 
                 {% if  '/creer-une-oeuvre' in  app.request.uri  %}
 
@@ -66,7 +66,7 @@
                         </div>
 
                             <div class="col-md-10">
-                                {{ form_row(form.id_categories) }}
+                                {{ form_row(form.categories) }}
                             </div>
                             <div class="col-md-2">
                                 {{ form_row(form.statut) }}
@@ -133,7 +133,7 @@
                             </div>
 
                             <div class="col-md-10">
-                                {{ form_row(form.id_categories) }}
+                                {{ form_row(form.categories) }}
                             </div>
                             <div class="col-md-2">
                                 {{ form_row(form.statut) }}
@@ -204,10 +204,11 @@
                                    {{oeuvre.statut }}
                                </td>
                                <td>
-                                   {{oeuvre.id_categories.nom }}
+                                   {{oeuvre.categories.nom }}
                                </td>
                                <td class='text-center'> <a href="{{ path('oeuvre_edit',{
-                                       id: oeuvre.id
+                                       id: oeuvre.id,
+                                       categories:oeuvre.categories.nom
                                    }) }}"><i class="fas fa-edit"></i></a></td>
                                <td class='text-center'> <a href="{{ path('delete_oeuvre',{
                                        id: oeuvre.id
@@ -225,7 +226,8 @@
 
 
 
-        <div class="row">
+
+        {#<div class="row">#}
             <div class="col-md-12 col-sm-12">
                 {% set contacts = contact_repository.findAll() %}
                 <h1 class ='text-center'>Messages from contacts </h1>
@@ -238,7 +240,7 @@
                         <th scope="col">Telephone</th>
                         <th scope="col">Email</th>
                         <th scope="col">Message</th>
-                        <th scope="col">Editer</th>
+                        {#<th scope="col">Editer</th>#}
                         <th scope="col">Suprimer</th>
                     </tr>
                     {% for contact in contacts %}
@@ -259,7 +261,7 @@
                                 {{contact.message }}
                             </td>
 
-                            <td class='text-center'> <a href="#"><i class="fas fa-edit"></i></a></td>
+                            {#<td class='text-center'> <a href="#"><i class="fas fa-edit"></i></a></td>#}
                             <td class='text-center'> <a href="{{ path('delete_message',{
                                     id: contact.id
                                 }) }}"><i class="fas fa-trash-alt"></i></a></td>
@@ -269,7 +271,7 @@
                 </table>
 
             </div>
-        </div>
+        {#</div>#}
     {% endif %}
 
     {% if '/membres' in  app.request.uri   %}
@@ -277,9 +279,9 @@
 
 
         <div class="row">
-            <div class="col-md-12 col-sm-12">
+            <div class="col-md-10 col-sm-12">
                 {% set membres = membres_repository.findAll() %}
-                <h1 class ='text-center'>Messages from contacts </h1>
+                <h1 class ='text-center'>Membres </h1>
 
                 <table class="table table-bordered text-white table-dark">
 
@@ -290,11 +292,11 @@
                         <th scope="col">Prenom</th>
                         <th scope="col">Telephone</th>
                         <th scope="col">Email</th>
-                        <th scope="col">mdp</th>
+                        {#<th scope="col">mdp</th>#}
                         <th scope="col">adresse</th>
                         <th scope="col">ville</th>
                         <th scope="col">code_postal</th>
-                        <th scope="col">role</th>
+                        {#<th scope="col">role</th>#}
                         <th scope="col">creatted_at</th>
                         <th scope="col">Editer</th>
                         <th scope="col">Suprimer</th>
@@ -316,24 +318,31 @@
                             <td>
                                 {{membre.email }}
                             </td>
-                            <td>
-                                {{membre.mdp }}
-                            </td>
+                            {#<td>#}
+                                {#{{membre.mdp }}#}
+                            {#</td>#}
                             <td>
                                 {{ membre.adresse }}
                             </td><td>
                                 {{ membre.ville }}
                             </td>
 
+                            <td>
+                                {{ membre.codePostal }}
+                            </td>
+                            {#{% for role in membre  %}#}
                             {#<td>#}
-                                {#{{ membre.code_postal }}#}
+
+                                {#{{ dump(role) }}#}
+
+                                    {#{{ role }}#}
+
                             {#</td>#}
-                            {#<td>#}
-                                {#{{ membre.role }}#}
-                            {#</td>#}
-                            {#<td>#}
-                                {#{{ membre.creatted_at | date("m/d/Y") }}#}
-                            {#</td>#}
+
+                            {#{% endfor %}#}
+                            <td>
+                                {{ membre.creattedAt | date("m/d/Y") }}
+                            </td>
 
                             <td class='text-center'> <a href="#"><i class="fas fa-edit"></i></a></td>
                             <td class='text-center'> <a href="{{ path('delete_message',{
@@ -345,6 +354,7 @@
                 </table>
 
             </div>
+        </div>
         </div>
     {% endif %}
 

@@ -5,7 +5,31 @@
 
     <!-- *************CONTENU DE LA PAGE D'ACCEUIL*************** -->
 
-    <div class="container">
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url({{ asset('assets/images/Art_d_Orient-Acrylique-33x41cm.jpg') }})"></div>
+            <div class="carousel-item" style="background-image: url({{ asset('assets/images/Cheval_sur_la_plage-Aquarelle.JPG') }})"></div>
+            <div class="carousel-item" style="background-image: url({{ asset('assets/images/Entre-Ciel-Mer-et-Terre-Acrylique-33x41cm.jpg') }})"></div>
+            <div class="carousel-item" style="background-image: url({{ asset('assets/images/Ethnie-I-Fusain-Cadre-43x53cm.jpg') }})"></div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <!--<div class="container">
 
         <div class="row">
             <div class="col-12 text-center p_index">
@@ -17,14 +41,14 @@
 
         </div>
 
-    </div>
+    </div>-->
 
-    <div class="container-fluid">
+    <footer class="fixed-bottom">
         <div class="row fird_p_index">
             <p class="col-12 text-center">"L'Art est Beau quand la Main, la Tête et le Coeur de l'Homme travaillent ensemble"</p><br>
             <p class=" col-12 d-flex justify-content-end">John Ruskin</p>
         </div>
-    </div>
+    </footer>
 
 
 {% endblock %}

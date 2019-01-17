@@ -64,7 +64,7 @@ class Contact
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      * @Assert\NotBlank(message="Vous devez saisir un message!")
      */
     private $message;

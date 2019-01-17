@@ -20,15 +20,26 @@ class Categories
      * @ORM\Column(type="string", length=255)
      */
     private $nom;
-    
-     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Oeuvres", mappedBy="Categories")
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Oeuvres", mappedBy="categories")
      */
     private $oeuvres;
-    
-    public function __construct()
+
+    /**
+     * @return mixed
+     */
+    public function getOeuvres()
     {
-        $this->oeuvres = new ArrayCollection();
+        return $this->oeuvres;
+    }
+
+    /**
+     * @param mixed $oeuvres
+     */
+    public function setOeuvres($oeuvres): void
+    {
+        $this->oeuvres = $oeuvres;
     }
 
     public function getId(): ?int
@@ -46,19 +57,6 @@ class Categories
         $this->nom = $nom;
 
         return $this;
-
-    }
-
-     
-    /**
-     * @param mixed $oeuvres
-     */
-    public function setOeuvres($oeuvres): void
-    {
-        $this->oeuvres = $oeuvres;
-    public function getOeuvres()
-    {
-        return $this->getOeuvres();
 
     }
 

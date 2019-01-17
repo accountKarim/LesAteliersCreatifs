@@ -2,38 +2,30 @@
 
 
 {% block body %}
-    {#{{ dump(oeuvres) }}#}
-    <ul>
-        {% for oeuvre in oeuvres %}
 
-            <li>
-                {{ oeuvre.titre }}
-            </li>
+    <div class="container">
+        <div class="row">
+            <div class="col-3 p-0 text-center div_oeuvre_gallerie">
+             {% for oeuvre in oeuvres %}
 
-            <li>
+                <h3>{{ oeuvre.titre }}</h3>
+
                 <img alt="" src="{{ asset ('assets/images/'~oeuvre.photo) }}" class="post-detail-img-left" />
 
-            </li>
+                <p>Technique : {{ oeuvre.techniques }} <br></p>
 
-            <li>
-                {{ oeuvre.techniques }}
-            </li>
+             <div>
+                 <a class="btn btn-block btn-ac"
+                    href="{{ path('boutique') }}">
+                     Acquérir cette oeuvre
+                 </a>
+             </div>
 
-            <li>
-                {{ oeuvre.dimensions }}
-            </li>
+             <br><br><br><br><br><br><br>
 
-            <li>
-                {{ oeuvre.prix }}
-            </li>
-
-            <li>
-                {{ oeuvre.statut }}
-            </li>
-            <br><br><br><br><br><br><br>
-
-        {% endfor %}
-    </ul>
-
+             {% endfor %}
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

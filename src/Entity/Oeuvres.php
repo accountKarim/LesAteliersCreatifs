@@ -34,23 +34,24 @@ class Oeuvres
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Categories" , inversedBy="oeuvres")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $id_categories;
+    private $categories;
 
     /**
      * @return mixed
      */
-    public function getIdCategories()
+    public function getCategories()
     {
-        return $this->id_categories;
+        return $this->categories;
     }
 
     /**
-     * @param mixed $id_categories
+     * @param mixed $categories
      */
-    public function setIdCategories($id_categories): void
+    public function setCategories($categories): void
     {
-        $this->id_categories = $id_categories;
+        $this->categories = $categories;
     }
 
 

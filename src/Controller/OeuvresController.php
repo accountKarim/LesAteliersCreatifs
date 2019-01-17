@@ -10,6 +10,7 @@ namespace App\Controller;
 
 use App\Controller\HelperTrait;
 
+use App\Entity\Categories;
 use App\Entity\Oeuvres;
 use App\Form\OeuvresFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,6 +18,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class OeuvresController extends AbstractController
@@ -26,7 +28,7 @@ class OeuvresController extends AbstractController
     /**
      * Formulaire pour ajouter un article
      * @Route("/creer-une-oeuvre", name="oeuvre_new")
-     * @Route("/oeuvre/edit/{id}", name="oeuvre_edit")
+     * @Route("/oeuvre/edit/{categories}/{id}", name="oeuvre_edit")
      * @param Oeuvres $oeuvre
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
@@ -118,6 +120,25 @@ class OeuvresController extends AbstractController
     }
 
 
+    /**
+     *
+     * @Route("/oeuvre/{id}.html",
+     * name="show_ouevre")
+     *
+     * @param Categories $categories
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+
+    public function showOeuvre(Oeuvres $oeuvres)
+    {
+
+
+        return $this->render('pages/oeuvre.html.twig', [
+            'oeuvres'=>$oeuvres,
+//            'categories'=> $categories
+        ]);
+    }
 
 }
 
