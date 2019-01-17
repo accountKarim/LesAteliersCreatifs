@@ -30,12 +30,6 @@ class OeuvresFormType extends AbstractType
      * @param FormBuilderInterface $builder
      * @param array $option
      */
-//    private $entityManager;
-//
-//    public function __construct(EntityManagerInterface $entityManager)
-//    {
-//        $this->entityManager = $entityManager;
-//    }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {

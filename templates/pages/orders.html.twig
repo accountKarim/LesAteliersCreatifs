@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Mes commandes' %}
+
+{% block body %}
+
+    <div class="container mt-5">
+
+        {# si le client na pas passer commande en lui affiche ce message #}
+
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">Vous n'avez pas de commande !</h4>
+            <p style="font-size: 1.9rem;">Vous n'avez pas encore passé de commande <a href="#!"><b>cliquez ici</b></a> pour découvrir les oeuvres</p>
+        </div>
+
+        {# Ssinon en lui affiche l'historique de ces commandes #}
+        <table class="table table-striped" style="background: white;">
+            <thead>
+            <tr>
+                <th scope="col">N°commandes</th>
+                <th scope="col">Oeuvres</th>
+                <th scope="col">Methode de paiement</th>
+                <th scope="col">Status</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Date d'achat</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Cheval sur la plage</td>
+                <td>Carte de crédit</td>
+                <td class="badge badge-dark mt-2">En cours de préparation</td>
+                <td>19 €</td>
+                <td>15 Janvier 2019</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+

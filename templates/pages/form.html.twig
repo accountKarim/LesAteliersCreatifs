@@ -1,4 +1,5 @@
-{% extends 'layout.html.twig' %}
+{% extends 'base.html.twig' %}
+
 
 {% block page_title %}
     Tableau de bord
@@ -18,7 +19,8 @@
         <div class="col-md-2"><a href="/oeuvres">Stock</a></div>
         <div class="col-md-2"><a href="/membres">Membres</a></div>
         <div class="col-md-2"><a href="/messages">Messages</a></div>
-        <div class="col-md-2"><a href="/messages">Commandes</a></div>
+        {#<div class="col-md-2"><a href="/{{ path('commande') }}">Commandes</a></div>#}
+
     </div>
             <div class="col-md-12 col-sm-12">
 
@@ -356,6 +358,67 @@
             </div>
         </div>
         </div>
+    {% endif %}
+    {% if '/commandes' in  app.request.uri   %}
+        <div class="col-md-12 col-sm-12">
+            {% set oeuvres = oeuvres_repository.findAll() %}
+            <h1 class ='text-center'>Nombre des Oeuvres en boutique </h1>
+
+            <table class="table table-bordered text-white table-dark">
+
+                <tr>
+
+                    <th scope="col">Id</th>
+                    <th scope="col">Oeuvre_Id</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Photo</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col">Statut</th>
+
+                    <th scope="col">Editer</th>
+                    <th scope="col">Suprimer</th>
+                </tr>
+                {% for oeuvre in oeuvres %}
+                    <tr>
+                        <td>
+                            {{ oeuvre.id }}
+                        </td>
+                        <td>
+                            {{oeuvre.titre }}
+                        </td>
+                        <td>
+                            {{oeuvre.dimensions  }}
+                        </td>
+                        <td>
+                            {{oeuvre.techniques }}
+                        </td>
+                        <td>
+
+                            <img class="img-fluid" src="{{ asset('assets/images/'~ oeuvre.photo) }}" alt="{{ oeuvre.titre}}">
+                        </td>
+                        <td>
+                            {{oeuvre.prix }}
+                        </td>
+                        <td>
+                            {{oeuvre.statut }}
+                        </td>
+                        <td>
+                            {{oeuvre.categories.nom }}
+                        </td>
+                        <td class='text-center'> <a href="{{ path('oeuvre_edit',{
+                                id: oeuvre.id,
+                                categories:oeuvre.categories.nom
+                            }) }}"><i class="fas fa-edit"></i></a></td>
+                        <td class='text-center'> <a href="{{ path('delete_oeuvre',{
+                                id: oeuvre.id
+                            }) }}"><i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+
+                {% endfor %}
+            </table>
+
+        </div>
+
     {% endif %}
 
     </div>

@@ -125,6 +125,12 @@ class Membres implements UserInterface
 
 
 
+    /**
+     * @var string le token qui servira lors de l'oubli de mot de passe
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $resetToken;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -307,4 +313,23 @@ class Membres implements UserInterface
      * the plain-text password is stored on this object.
      */
     public function eraseCredentials(){}
+
+
+    /**
+     * @return string
+     */
+    public function getResetToken(): string
+    {
+        return $this->resetToken;
+    }
+
+    /**
+     * @param string $resetToken
+     */
+    public function setResetToken(?string $resetToken)
+    {
+        $this->resetToken = $resetToken;
+    }
+
+
 }

@@ -19,8 +19,7 @@ class HomeController extends AbstractController {
         $carousel = $repository->findAll();
 
         return $this->render("pages/home.html.twig", [
-            'carousel'=>$carousel
-
+            'carousel' => $carousel
         ]);
 
     }
@@ -34,6 +33,18 @@ class HomeController extends AbstractController {
 
 
         ]);
+
+    }
+
+
+    /**
+     * @Route("/orders", name="page_orders")
+     */
+    public function orders() {
+
+
+        return $this->render("pages/orders.html.twig");
+
 
     }
 
