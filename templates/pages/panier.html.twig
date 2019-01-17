@@ -1,50 +1,73 @@
-{% extends 'layout.html.twig' %}
+{#{% extends 'layout.html.twig' %}#}
+{% extends 'base.html.twig' %}
+
 
 
 {% block body %}
-
+    <div class="container">
     {#{{ dump(app.session('panier')) }}#}
     {% if panier is not empty %}
-    <button class="btn btn-primary bg-danger"><a href="{{ path('removePanier') }}">RemoveAll</a></button>
 
-       <ul class="thumbnails">
+        <nav class="navbar sticky-top navbar-light bg-light">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col">
+                <a class="navbar-brand text-danger" href="{{ path('removePanier') }}">RemoveAll</a>
+                <a class="navbar-brand " href="#">Acheter</a>
+            </div>
 
-        {% for oeuvre in panier %}
+        </nav>
+        <div class="row">
 
-            <li>
-                {{ oeuvre.titre }}
-            </li>
 
-            <li>
-                <img alt="" src="{{ asset ('assets/images/'~oeuvre.photo) }}" class="post-detail-img-left" />
-            </li>
+            <div class="col-md-12 col-sm-12">
+                   <!--Table-->
+                   <table class="table table-bordered table-striped text-white table-dark table_panier">
 
-            <li>
-                {{ oeuvre.techniques }}
-            </li>
+                       <!--Table head-->
+                       {#<thead>#}
+                       <tr>
 
-            <li>
-                {{ oeuvre.dimensions }}
-            </li>
+                           <th  scope="col">Contite</th>
+                           <th  scope="col">Titre</th>
+                           <th  scope="col">Dimensions</th>
+                           <th  scope="col">Photo</th>
+                           <th  scope="col">Prix</th>
+                           <th  scope="col">Suprimer</th>
 
-            <li>
-                {{ oeuvre.prix }}
-            </li>
 
-            <li>
-                {{ oeuvre.statut }}
-            </li>
-        <button class="btn btn-primary"><a href="{{ path('removeInPanier', {
-                'id': oeuvre.id
-            }) }}">Remove</a></button>
+                       </tr>
+                       {#</thead>#}
+                       <!--Table head-->
+                       <!--Table body-->
+                       {#<tbody>#}
+                 {% for oeuvre in panier %}
+                       <tr class="text-center">
+                           <th >
 
-        <br><br><br><br><br><br><br>
-        {% endfor %}
-    </ul>
+                           </th>
+                           <td> {{ oeuvre.titre }}</td>
+                           <td>{{ oeuvre.dimensions }}</td>
+                           <td> <img alt="" src="{{ asset ('assets/images/'~oeuvre.photo) }}" class="post-detail-img-left img_panier" /></td>
+                           <td>{{ oeuvre.prix }}</td>
+                           <td><button class="btn "><a href="{{ path('removeInPanier', {
+                                       'id': oeuvre.id
+                                   }) }}">Remove</a></button></td>
+
+                       </tr>
+
+                 {% endfor %}
+                       {#</tbody>#}
+                   </table>
+            </div>
+
+        </div>
 
     {% else %}
         <div>
                <h1>Panier est vide!</h1>
         </div>
     {% endif %}
+    </div>
 {% endblock %}

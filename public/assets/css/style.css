@@ -143,7 +143,6 @@ div.fird_p_index {
 }
 
 /* *********** Form input et btn ************** */
-
 input.form-control {
     padding: 1rem;
     font-size: 14px;
@@ -155,9 +154,35 @@ input.form-control {
     font-size: 17px;
     border-radius: 5px;
 }
+form {
+    background-color:#9a7078;
+
+}
+/* *********** Form login-connexion ************** */
+
+.form_login {
+    color: red;
+}
+
+
+/* *********** Form ajouter une oeuvre-tableau de bord ************** */
+
+#oeuvre_categories {
+    height: 5rem;
+    font-size: 2rem;
+}
 
 /* *********** Boutton "Ajouter au panier" page boutique ************** */
 
 div a.ajout_panier {
     color: white;
+}
+
+/* *********** image tableau panier ************** */
+
+.img_panier {
+    max-width: 15rem;
+}
+.table_panier{
+    background-color: #9a5e5e;
 }
