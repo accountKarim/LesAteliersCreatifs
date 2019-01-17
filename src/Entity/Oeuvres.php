@@ -32,27 +32,6 @@ class Oeuvres
      */
     private $titre;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Categories" , inversedBy="oeuvres")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $categories;
-
-    /**
-     * @return mixed
-     */
-    public function getCategories()
-    {
-        return $this->categories;
-    }
-
-    /**
-     * @param mixed $categories
-     */
-    public function setCategories($categories): void
-    {
-        $this->categories = $categories;
-    }
 
 
 
@@ -101,9 +80,9 @@ class Oeuvres
      * @ORM\Column(name="statut", type="boolean", nullable=true)
      */
     private $statut;
-    
+
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Categories", inversedBy="Oeuvres")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Categories", inversedBy="oeuvres")
      * @ORM\JoinColumn(nullable=false)
      */
     private $categories;
@@ -135,26 +114,6 @@ class Oeuvres
 
         return $this;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getIdCategories()
-    {
-        return $this->id_categories;
-    }
-
-    /**
-     * @param mixed $id_categories
-     */
-    public function setIdCategories($id_categories): void
-    {
-        $this->id_categories = $id_categories;
-    }
-
-
-
-    public function getDimensions(): ?string
 
 
     public function getDimensions()
@@ -236,8 +195,10 @@ class Oeuvres
     {
         return $this->categories;
     }
+
     /**
-     * @param mixed $categories
+     * @param $categories
+     * @return Oeuvres
      */
     public function setCategories($categories): self
     {

@@ -42,7 +42,6 @@ class ContactController extends AbstractController
             'controller_name' => 'ContactController',
         ]);
 
-
     }
 
     /**

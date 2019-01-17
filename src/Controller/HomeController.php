@@ -10,10 +10,9 @@ class HomeController extends AbstractController {
 
 
     /**
-     * @Route("/home", name="page_home")
+     * @Route("/", name="page_home")
      */
     public function index() {
-
 
         $repository = $this->getDoctrine()
             ->getRepository(Oeuvres::class);
@@ -24,7 +23,17 @@ class HomeController extends AbstractController {
 
         ]);
 
+    }
+    /**
+     * @Route("/biographie", name="biographie")
+     */
+    public function biographie()
+    {
 
+        return $this->render("pages/biographie.html.twig", [
+
+
+        ]);
 
     }
 

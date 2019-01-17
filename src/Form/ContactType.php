@@ -58,7 +58,7 @@ class ContactType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label'=>"Envoyer",
                 'attr' =>[
-                    'class' => 'btn btn-primary mt-5' , 'style' => 'margin-bottom:15px',
+                    'class' => 'btn mt-5 submit w-100' , 'style' => 'margin-bottom:15px',
                 ]
 
             ] )
