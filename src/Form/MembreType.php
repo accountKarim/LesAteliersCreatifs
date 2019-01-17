@@ -67,9 +67,9 @@ class MembreType extends AbstractType
             ])
             ->add('tel', IntegerType::class, [
                 'required' => false,
-                'label' => "Télèphone",
+                'label' => "Téléphone",
                 'attr' => [
-                    'placeholder' => "Saisissez votre numéro de télèphone"
+                    'placeholder' => "Saisissez votre numéro de téléphone"
                 ]
             ])
         ;
