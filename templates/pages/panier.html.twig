@@ -11,10 +11,10 @@
         <nav class="navbar sticky-top navbar-light bg-light">
             <div class="col"></div>
             <div class="col"></div>
-            <div class="col"></div>
             <div class="col">
-                <a class="navbar-brand text-danger" href="{{ path('removePanier') }}">RemoveAll</a>
-                <a class="navbar-brand " href="#">Acheter</a>
+                <a class="navbar-brand text-danger" href="{{ path('removePanier') }}">Vider le panier</a>
+                <a class="navbar-brand " href="{{ path('envoyeeCommande') }}">Acheter</a>
+
             </div>
 
         </nav>
@@ -29,7 +29,7 @@
                        {#<thead>#}
                        <tr>
 
-                           <th  scope="col">Contite</th>
+                           <th  scope="col">Quantité</th>
                            <th  scope="col">Titre</th>
                            <th  scope="col">Dimensions</th>
                            <th  scope="col">Photo</th>
@@ -53,7 +53,7 @@
                            <td>{{ oeuvre.prix }}</td>
                            <td><button class="btn "><a href="{{ path('removeInPanier', {
                                        'id': oeuvre.id
-                                   }) }}">Remove</a></button></td>
+                                   }) }}">Suprimer</a></button></td>
 
                        </tr>
 
