@@ -32,17 +32,6 @@ label {
     font-size: 1.6rem;
 }
 
-/* div.img img {
-    width: 100%;
-    height: 100% !important;
-    object-fit: cover;
-    position: absolute;
-} */
-
-/* div.img {
-    height: 100vh;
-} */
-
 /* *********** Navigation-navbar ************** */
 
 nav {
@@ -137,24 +126,28 @@ div.fird_p_index {
 
 input.form-control {
     padding: 1rem;
-    font-size: 14px;
-    border-radius: 6px;
+    font-size: 1.4rem;
+    border-radius: .6rem;
 }
 
 .btn {
     background-color: #9a7078;
-    padding: 11px;
-    font-size: 17px;
-    border-radius: 5px;
+    padding: 1.1rem;
+    font-size: 1.7rem;
+    border-radius: .5rem;
 }
 
 /* *********** Page boutique ************** */
+/* Boutton "Ajouter au panier"  */
 
+div a.ajout_panier {
+    color: white;
+}
 .oeuvre-card {
     margin-bottom: 2rem;
     border-radius: 1rem;
     overflow: hidden;
-    border: 1px solid #9a7078;
+    border: .3rem solid #9a7078;
 }
 
 .oeuvre-card .card-title {
@@ -186,11 +179,15 @@ input.form-control {
     background-color: #715258;
     color: #bfe5f1;
 }
-/* *********** Boutton "Ajouter au panier" page boutique ************** */
 
-div a.ajout_panier {
-    color: white;
+
+
+/* *********** Page Panier ************** */
+
+.panier_vide {
+    color: red;
 }
+
 
 /* *********** Page Gallerie ************** */
 
@@ -202,17 +199,28 @@ div.div_oeuvre_gallerie {
     max-width: 50rem;
 }
 
+.technique-gallerie {
+    font-size: 2rem;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.titre_oeuvre_gallerie {
+    font-family: 'Playball', cursive;
+    font-size: 2.5rem;
+    color: black;
+}
+
 /* *********** message d'alert ************** */
 
 .alert {
-    border-radius: 5px;
-    font-size: 17px;
+    border-radius: .5rem;
+    font-size: 1.7rem;
     line-height: 4rem;
 }
 
 .alert button.close {
     outline: none;
-    font-size: 33px;
+    font-size: 3.3rem;
     font-weight: 600;
 }
 
@@ -226,17 +234,6 @@ form {
     background-color: #4950570f;
     padding: 2.5rem;
     border-radius: 0.6rem;
-}
-
-.technique-gallerie {
-    font-size: 2rem;
-    font-family: 'Roboto Condensed', sans-serif;
-}
-
-.titre_oeuvre_gallerie {
-    font-family: 'Playball', cursive;
-    font-size: 2.5rem;
-    color: black;
 }
 
 /* *********** Biographie ************** */
@@ -256,9 +253,46 @@ form {
 /* *********** CONTACT ************** */
 
 .submit {
-  color: #bfe5f1;
+  color: white;
 }
 
+.placeholder_message {
+    font-size: 1.5rem;
+}
+
+/* *********** Tableau de bord ************** */
+
+/** Ajouter oeuvre **/
+#oeuvre_categories {
+    font-size: 1.5rem;
+    height: 3rem;
+}
+
+/** onglet browser **/
+.custom-file-label::after {
+    line-height: .5rem;
+}
+
+.nav_tableau_de_bord {
+    border: none;
+}
+
+.nom_aPanier {
+    color: #2e3136;}
+
+.aPanier {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.img-tableau-de-bord {
+    max-width: 20rem;
+}
+
+/** taille police - traitement_messages  **/
+
+.traitement_messages {
+    font-size: 1.5rem;
+}
 
 /* *********** Footer ************** */
 

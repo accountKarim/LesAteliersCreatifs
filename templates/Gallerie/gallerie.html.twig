@@ -12,7 +12,7 @@
             <div class="col-12 m-5 p-0 text-center div_oeuvre_gallerie">
                 {% for oeuvre in oeuvres %}
 
-                    <h3 class="titre_oeuvre_gallerie">{{ oeuvre.titre }}</h3>
+                    <h3 class="titre_oeuvre_gallerie mb-5">{{ oeuvre.titre }}</h3>
 
                      <img alt="{{ oeuvre.titre }}" src="{{ asset ('assets/images/'~oeuvre.photo) }}" class="post-detail-img-left" />
 

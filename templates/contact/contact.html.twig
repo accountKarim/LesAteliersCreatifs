@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ContactController!{% endblock %}
+{% block title %}Contactez-nous{% endblock %}
 
 {% block body %}
+
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
     <h3 class="text-center m-5">Contactez-nous</h3>
 
@@ -14,19 +16,26 @@
     <div class="example-wrapper">
 
         <div class="container">
+
+            {% for message in app.Flashes('notice') %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    {{ message }}
+                </div>
+            {% endfor %}
+
             <div class="row">
                 <div class="col-md-12 col-sm-12">
-
                     <div class="form_row m-5">
                         {{ form(form, {attr:{novalidate:'novalidate'}}) }}
                     </div>
                 </div>
-
-
             </div>
 
         </div>
-    </div>
 
     </div>
+
 {% endblock %}

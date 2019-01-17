@@ -49,7 +49,7 @@ class ContactType extends AbstractType
             ->add('message', TextareaType::class, [
                 'label'=>"Votre message: ",
                 'attr' =>[
-                    'class' => 'form-control',
+                    'class' => 'form-control placeholder_message',
                     'rows'=>6,
                     'placeholder' => "Saisissez votre message"
 

@@ -18,7 +18,6 @@ class Contact
      */
     private $id;
 
-
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Vous devez saisir Votre Nom!")

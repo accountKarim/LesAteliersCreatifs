@@ -11,239 +11,245 @@
 {% endblock %}
 
 {% block content %}
+    <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-center nav_tableau_de_bord">
+
+        <div class="" id="navbarSupportedContent">
+            <ul class="navbar-nav d-flex justify-content-center">
+
+                <li class="nav-item m-5">
+                    <a href="/creer-une-oeuvre">Ajouter une oeuvre</a>
+                </li>
+
+                <li class="nav-item m-5">
+                    <a href="/oeuvres">Gestion des stocks</a>
+                </li>
+
+                <li class="nav-item m-5">
+                    <a href="/membres">Gestion des membres</a>
+                </li>
+
+                <li class="nav-item m-5">
+                    <a href="/messages">Traitement des messages</a>
+                </li>
+
+                <li class="nav-item m-5">
+                    <a href="#">Traitement des commandes</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+    {# ************************ Ajouter une Oeuvre ******************************* #}
+
     <div class="container">
 
-    <div class="row">
+        <div class="col-md-12 col-sm-12">
 
-        <div class="col-md-2"><a href="/creer-une-oeuvre">Ajouter une Oeuvre</a>   </div>
-        <div class="col-md-2"><a href="/oeuvres">Stock</a></div>
-        <div class="col-md-2"><a href="/membres">Membres</a></div>
-        <div class="col-md-2"><a href="/messages">Messages</a></div>
-        {#<div class="col-md-2"><a href="/{{ path('commande') }}">Commandes</a></div>#}
-
-    </div>
-            <div class="col-md-12 col-sm-12">
-
-                {% if  '/creer-une-oeuvre' in  app.request.uri  %}
+            {% if  '/creer-une-oeuvre' in  app.request.uri  %}
 
 
-                <h1 class="text-center">Créer une Oeuvre</h1>
+            <h3 class="text-center m-5">Ajouter une Oeuvre</h3>
 
-                {% form_theme form 'bootstrap_4_layout.html.twig' %}
-
-
-                {#{{ form(form, { 'attr': {'class': 'form-group align-items-center shadow p-3 mb-5 rounded', 'style':"background-color:#ececec;" , novalidate:'novalidate' } }) }}#}
+            {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
 
+            {{ form_start(form, { 'attr': {'class': 'form-group shadow p-3 mb-5 rounded', 'style':"background-color:#ececec;" , novalidate:'novalidate' } }) }}
 
-                {#{{ form_widget(form, { 'attr': {'class': 'form-group shadow p-3 mb-5 rounded', 'style':"background-color:#ececec;"  } }) }}#}
-                {{ form_start(form, { 'attr': {'class': 'form-group shadow p-3 mb-5 rounded', 'style':"background-color:#ececec;" , novalidate:'novalidate' } }) }}
+        <div class="row text-center">
+
+            <div class="col-md-12">
+                {{ form_row(form.titre) }}
+            </div>
+
+            <div class="col-md-12">
+                {{ form_row(form.photo) }}
+            </div>
+
+            <div class="col-md-4">
+                {{ form_row(form.dimensions) }}
+            </div>
+
+            <div class="col-md-4">
+                {{ form_row(form.techniques) }}
+            </div>
+
+            <div class="col-md-4">
+               {{ form_row(form.prix) }}
+            </div>
+
+            <div class="col-md-10">
+                {{ form_row(form.categories) }}
+            </div>
+
+            <div class="col-md-2">
+                {{ form_row(form.statut) }}
+            </div>
+
+            <div class="col-md-12">
+                <button type="submit" class="btn col-md-12 submit">
+                    {% if editMode %}
+                        Enregistrer les modifications
+                        {% else %}
+                            Ajouter une Oeuvre
+                    {% endif %}
+                </button>
+            </div>
+                {{ form_rest(form) }}
+                {{ form_end(form) }}
+            </div>
+
+
+            {% endif %}
+        </div>
+
+{# ************************ Modifier une Oeuvre ******************************* #}
+
+        {% if '/oeuvre' in  app.request.uri  %}
+        {% if  '/oeuvre/edit/' in  app.request.uri  %}
+
+        <h3 class="text-center m-5">Modifier une Oeuvre</h3>
+
+            {% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+            {{ form_start(form, { 'attr': {'class': 'form-group shadow p-3 mb-5 rounded', 'style':"background-color:#ececec;" , novalidate:'novalidate' } }) }}
 
                 <div class="row text-center">
 
                     <div class="col-md-12">
-                                {#{{ form_errors(form) }}#}
-                                {{ form_row(form.titre) }}
-                            </div>
-                    {#</div >#}
-                    {#<div class="row">#}
+                        {{ form_row(form.titre) }}
+                    </div>
 
-                        <div class="col-md-12">
-                            {{ form_row(form.photo) }}
-                        </div>
-                            <div class="col-md-4">
+                    <div class="col-md-12">
+                        {{ form_row(form.photo) }}
+                    </div>
 
-                                {{ form_row(form.dimensions) }}
+                    <div class="col-md-4">
+                        {{ form_row(form.dimensions) }}
+                    </div>
 
-                            </div>
-                            <div class="col-md-4">{{ form_row(form.techniques) }}</div>
+                    <div class="col-md-4">
+                        {{ form_row(form.techniques) }}
+                    </div>
 
+                    <div class="col-md-4">
+                        {{ form_row(form.prix) }}
+                    </div>
 
-                            <div class="col-md-4">
-                               {{ form_row(form.prix) }}
-                            </div>
+                    <div class="col-md-10">
+                        {{ form_row(form.categories) }}
+                    </div>
 
-                        <div class="col-md-4">
+                    <div class="col-md-2">
+                        {{ form_row(form.statut) }}
+                    </div>
 
-                        </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn col-md-12">
+                            {% if editMode %}
+                                Enregistrer les modifications
+                            {% else %}
+                                Creer une Oeuvre
+                            {% endif %}
+                        </button>
+                    </div>
 
-                            <div class="col-md-10">
-                                {{ form_row(form.categories) }}
-                            </div>
-                            <div class="col-md-2">
-                                {{ form_row(form.statut) }}
-
-                            </div>
-
-
-                            <div class="col-md-12">
-                                <button type="submit" class="btn bg-primary col-md-12">
-                                    {% if editMode %}
-                                        Enregistrer les modifications
-                                        {% else %}
-                                            Creer une Oeuvre
-                                    {% endif %}
-
-
-                                </button>
-
-                            </div>
                     {{ form_rest(form) }}
                     {{ form_end(form) }}
-                        </div>
-
-
-                {% endif %}
-            </div>
-
-                {% if '/oeuvre' in  app.request.uri  %}
-                    {% if  '/oeuvre/edit/' in  app.request.uri  %}
-
-
-                        <h1 class="text-center">Créer une Oeuvre</h1>
-
-                        {% form_theme form 'bootstrap_4_layout.html.twig' %}
-
-                     {{ form_start(form, { 'attr': {'class': 'form-group shadow p-3 mb-5 rounded', 'style':"background-color:#ececec;" , novalidate:'novalidate' } }) }}
-
-                        <div class="row text-center">
-
-                            <div class="col-md-12">
-                                {#{{ form_errors(form) }}#}
-                                {{ form_row(form.titre) }}
-                            </div>
-                            {#</div >#}
-                            {#<div class="row">#}
-
-                            <div class="col-md-12">
-                                {{ form_row(form.photo) }}
-                            </div>
-                            <div class="col-md-4">
-
-                                {{ form_row(form.dimensions) }}
-
-                            </div>
-                            <div class="col-md-4">{{ form_row(form.techniques) }}</div>
-
-
-                            <div class="col-md-4">
-                                {{ form_row(form.prix) }}
-                            </div>
-
-                            <div class="col-md-4">
-
-                            </div>
-
-                            <div class="col-md-10">
-                                {{ form_row(form.categories) }}
-                            </div>
-                            <div class="col-md-2">
-                                {{ form_row(form.statut) }}
-
-                            </div>
-
-
-                            <div class="col-md-12">
-                                <button type="submit" class="btn bg-primary col-md-12">
-                                    {% if editMode %}
-                                        Enregistrer les modifications
-                                    {% else %}
-                                        Creer une Oeuvre
-                                    {% endif %}
-
-
-                                </button>
-
-                            </div>
-                            {{ form_rest(form) }}
-                            {{ form_end(form) }}
-                        </div>
-
-
-                    {% endif %}
-
-            <div class="col-md-12 col-sm-12">
-                    {% set oeuvres = oeuvres_repository.findAll() %}
-                    <h1 class ='text-center'>Nombre des Oeuvres en boutique </h1>
-
-                       <table class="table table-bordered text-white table-dark">
-
-                        <tr>
-
-                            <th scope="col">Id</th>
-                            <th scope="col">Titre</th>
-                            <th scope="col">Dimensions</th>
-                            <th scope="col">Techniques</th>
-                            <th scope="col">Photo</th>
-                            <th scope="col">Prix</th>
-                            <th scope="col">Statut</th>
-                            <th scope="col">Categories</th>
-                            <th scope="col">Editer</th>
-                            <th scope="col">Suprimer</th>
-                        </tr>
-                           {% for oeuvre in oeuvres %}
-                           <tr>
-                               <td>
-                                   {{ oeuvre.id }}
-                               </td>
-                               <td>
-                                   {{oeuvre.titre }}
-                               </td>
-                               <td>
-                                   {{oeuvre.dimensions  }}
-                               </td>
-                               <td>
-                                   {{oeuvre.techniques }}
-                               </td>
-                               <td>
-
-                                   <img class="img-fluid" src="{{ asset('assets/images/'~ oeuvre.photo) }}" alt="{{ oeuvre.titre}}">
-                               </td>
-                               <td>
-                                   {{oeuvre.prix }}
-                               </td>
-                               <td>
-                                   {{oeuvre.statut }}
-                               </td>
-                               <td>
-                                   {{oeuvre.categories.nom }}
-                               </td>
-                               <td class='text-center'> <a href="{{ path('oeuvre_edit',{
-                                       id: oeuvre.id,
-                                       categories:oeuvre.categories.nom
-                                   }) }}"><i class="fas fa-edit"></i></a></td>
-                               <td class='text-center'> <a href="{{ path('delete_oeuvre',{
-                                       id: oeuvre.id
-                                   }) }}"><i class="fas fa-trash-alt"></i></a></td>
-                           </tr>
-
-                           {% endfor %}
-                       </table>
-
-                    </div>
                 </div>
-                {% endif %}
+
+        {% endif %}
+
+{# ************************ Gestion des stocks ******************************* #}
+
+    <div class="col-md-12 col-sm-12">
+    {% set oeuvres = oeuvres_repository.findAll() %}
+
+    <h3 class ='text-center m-5'>Gestion des stocks </h3>
+
+    <table class="table table-bordered text-white table-dark">
+
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Dimensions</th>
+            <th scope="col">Techniques</th>
+            <th scope="col">Photo</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Disponibilité</th>
+            <th scope="col">Categories</th>
+            <th scope="col">Editer</th>
+            <th scope="col">Suprimer</th>
+        </tr>
+   {% for oeuvre in oeuvres %}
+           <tr>
+               <td>
+                   {{ oeuvre.id }}
+               </td>
+               <td>
+                   {{oeuvre.titre }}
+               </td>
+               <td>
+                   {{oeuvre.dimensions  }}
+               </td>
+               <td>
+                   {{oeuvre.techniques }}
+               </td>
+               <td>
+                   <img class="img-fluid img-tableau-de-bord" src="{{ asset('assets/images/'~ oeuvre.photo) }}" alt="{{ oeuvre.titre}}">
+               </td>
+               <td>
+                   {{oeuvre.prix }}
+               </td>
+               <td>
+                   {{oeuvre.statut }}
+               </td>
+               <td>
+                   {{oeuvre.categories.nom }}
+               </td>
+               <td class='text-center'>
+                   <a href="{{ path('oeuvre_edit',{
+                       id: oeuvre.id,
+                       categories:oeuvre.categories.nom
+                   }) }}">
+                    <i class="fas fa-edit"></i>
+                   </a>
+               </td>
+               <td class='text-center'>
+                   <a href="{{ path('delete_oeuvre',{
+                       id: oeuvre.id
+                   }) }}">
+                    <i class="fas fa-trash-alt"></i>
+                   </a>
+               </td>
+           </tr>
+
+           {% endfor %}
+       </table>
+
+    </div>
+</div>
+{% endif %}
+
+    {# ************************ Traitement des messages ******************************* #}
+
 
     {% if '/messages' in  app.request.uri   %}
 
-
-
-
-        {#<div class="row">#}
             <div class="col-md-12 col-sm-12">
                 {% set contacts = contact_repository.findAll() %}
-                <h1 class ='text-center'>Messages from contacts </h1>
+                <h3 class ='text-center m-5'>Traitement des messages</h3>
 
-                <table class="table table-bordered text-white table-dark">
+                <table class="table table-bordered text-white table-dark traitement_messages">
 
                     <tr>
                         <th scope="col">Nom</th>
-                        <th scope="col">Prenom</th>
-                        <th scope="col">Telephone</th>
+                        <th scope="col">Prénom</th>
+                        <th scope="col">Téléphone</th>
                         <th scope="col">Email</th>
                         <th scope="col">Message</th>
-                        {#<th scope="col">Editer</th>#}
-                        <th scope="col">Suprimer</th>
+                        <th scope="col">Supprimer</th>
                     </tr>
                     {% for contact in contacts %}
                         <tr>
@@ -273,34 +279,31 @@
                 </table>
 
             </div>
-        {#</div>#}
     {% endif %}
+
+
+    {# ************************ Gestion des membres ******************************* #}
 
     {% if '/membres' in  app.request.uri   %}
 
-
-
         <div class="row">
-            <div class="col-md-10 col-sm-12">
+            <div class="col-12">
                 {% set membres = membres_repository.findAll() %}
-                <h1 class ='text-center'>Membres </h1>
 
-                <table class="table table-bordered text-white table-dark">
+                <h3 class ='text-center m-5'>Gestion des membres</h3>
+
+                <table class="table table-bordered text-white table-dark traitement_messages">
 
                     <tr>
-
-                        <th scope="col">id</th>
+                        <th scope="col">Id</th>
                         <th scope="col">Nom</th>
-                        <th scope="col">Prenom</th>
-                        <th scope="col">Telephone</th>
+                        <th scope="col">Prénom</th>
+                        <th scope="col">Téléphone</th>
                         <th scope="col">Email</th>
-                        {#<th scope="col">mdp</th>#}
-                        <th scope="col">adresse</th>
-                        <th scope="col">ville</th>
-                        <th scope="col">code_postal</th>
-                        {#<th scope="col">role</th>#}
-                        <th scope="col">creatted_at</th>
-                        <th scope="col">Editer</th>
+                        <th scope="col">Adresse</th>
+                        <th scope="col">Ville</th>
+                        <th scope="col">Code postal</th>
+                        <th scope="col">Date d'inscription</th>
                         <th scope="col">Suprimer</th>
                     </tr>
                     {% for membre in membres %}
@@ -320,33 +323,18 @@
                             <td>
                                 {{membre.email }}
                             </td>
-                            {#<td>#}
-                                {#{{membre.mdp }}#}
-                            {#</td>#}
                             <td>
                                 {{ membre.adresse }}
                             </td><td>
                                 {{ membre.ville }}
                             </td>
-
                             <td>
                                 {{ membre.codePostal }}
                             </td>
-                            {#{% for role in membre  %}#}
-                            {#<td>#}
-
-                                {#{{ dump(role) }}#}
-
-                                    {#{{ role }}#}
-
-                            {#</td>#}
-
-                            {#{% endfor %}#}
                             <td>
                                 {{ membre.creattedAt | date("m/d/Y") }}
                             </td>
 
-                            <td class='text-center'> <a href="#"><i class="fas fa-edit"></i></a></td>
                             <td class='text-center'> <a href="{{ path('delete_message',{
                                     id: membre.id
                                 }) }}"><i class="fas fa-trash-alt"></i></a></td>
@@ -393,7 +381,6 @@
                             {{oeuvre.techniques }}
                         </td>
                         <td>
-
                             <img class="img-fluid" src="{{ asset('assets/images/'~ oeuvre.photo) }}" alt="{{ oeuvre.titre}}">
                         </td>
                         <td>

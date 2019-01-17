@@ -38,21 +38,21 @@ class OeuvresFormType extends AbstractType
             ->add('titre',TextType::class, [
                 'data_class' => null,
             'required'=>true,
-            'label'=>"Titre de Oeuvre",
+            'label'=>"Titre de l'oeuvre",
             'attr'=>[
-                'placeholder'=>"Titre de Oeuvre",
+                'placeholder'=>"Titre de l'oeuvre",
                 'class' => 'form-control col-md-12'
             ]
         ])
         ->add('dimensions',TextType::class, [
-            'label'=>"dimensions",'data_class' => null,
+            'label'=>"Dimensions",'data_class' => null,
             'attr'=>[
                 'class' => 'col-md-12'
             ]
 //                'name'=> "editor1",
          ])
         ->add('techniques',TextType::class, [
-            'label'=>"techniques",'data_class' => null,
+            'label'=>"Technique",'data_class' => null,
             'attr'=>[
                 'class' => 'col-md-12'
             ]
@@ -60,21 +60,21 @@ class OeuvresFormType extends AbstractType
         ])
 
         ->add('prix',TextType::class, [
-            'label'=>"prix",'data_class' => null,
+            'label'=>"Prix",'data_class' => null,
             'attr'=>[
                 'class' => ' col-md-12'
             ]
         ])
             ->add('photo', FileType::class, [
+                'label'=>"Image",
                 'data_class' => null,
                 'attr'=> [
-                    'label'=>"photo",
                     'class'=>'form-control col-md-12 form-control-file dropify'
                 ]
             ])
 
         ->add('categories', EntityType::class,[
-            'label'=>"id_categories",'data_class' => null,
+            'label'=>"Categorie",'data_class' => null,
             'class'=>Categories::class,
             'choice_label'=>"nom",
             'expanded'=>false,
@@ -87,7 +87,7 @@ class OeuvresFormType extends AbstractType
 
         ->add('statut', CheckboxType::class, [
             'required'=> false,
-            'label'=>"statut",
+            'label'=>"Disponibilité",
             'attr'=>[
                 'class'=>'form-control col-md-12 ',
                 'data-toggle' => 'toggle',

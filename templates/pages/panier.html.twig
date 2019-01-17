@@ -4,77 +4,66 @@
 
 
 {% block body %}
+
+    <h3 class ='text-center m-5'>Mon panier</h3>
+
     <div class="container">
-    {#{{ dump(app.session('_security_main')) }}#}
     {% if panier is not empty %}
 
-        <nav class="navbar navbar-light bg-light">
-            <div class="col">
-                <a class="navbar-brand text-info aPanier" href="{{ path('security_profil') }}">{{app.user.nom  }} {{app.user.prenom  }}</a>
-
-
-            </div>
-            <div class="col"></div>
-            <div class="col">
-                <a class="navbar-brand text-danger aPanier" href="{{ path('removePanier') }}">Vider le panier</a>
-                <a class="navbar-brand aPanier" href="#">Acheter</a>
-
-            </div>
-
+        <nav class="navbar navbar-light bg-light d-flex nav_tableau_de_bord">
+            <a class="bg-light nom_aPanier m-5 flex-grow-1" href="{{ path('security_profil') }}">{{app.user.nom  }} {{app.user.prenom  }}</a>
+            <a class="bg-light aPanier m-2" href="{{ path('removePanier') }}">Vider le panier</a>
+            <a class="bg-light aPanier m-2" href="{{ path('page_payment') }}">Finalisez la commande</a>
         </nav>
 
-        <p> </p>
-
-
         <div class="row">
-
-
             <div class="col-md-12 col-sm-12">
                    <!--Table-->
                    <table class="table table-bordered table-striped text-white table-dark table_panier">
-
                        <!--Table head-->
-                       {#<thead>#}
                        <tr>
-
                            <th  scope="col">Quantité</th>
                            <th  scope="col">Titre</th>
                            <th  scope="col">Dimensions</th>
                            <th  scope="col">Photo</th>
                            <th  scope="col">Prix</th>
-                           <th  scope="col">Suprimer</th>
-
-
+                           <th  scope="col">Supprimer</th>
                        </tr>
-                       {#</thead>#}
-                       <!--Table head-->
                        <!--Table body-->
-                       {#<tbody>#}
                  {% for oeuvre in panier %}
                        <tr class="text-center">
-                           <th >
-
-                           </th>
-                           <td> {{ oeuvre.titre }}</td>
-                           <td>{{ oeuvre.dimensions }}</td>
-                           <td> <img alt="" src="{{ asset ('assets/images/'~oeuvre.photo) }}" class="post-detail-img-left img_panier" /></td>
-                           <td>{{ oeuvre.prix }}</td>
-                           <td><button class="btn "><a href="{{ path('removeInPanier', {
-                                       'id': oeuvre.id
-                                   }) }}">Suprimer</a></button></td>
-
+                           <td>
+                               1
+                           </td>
+                           <td>
+                               {{ oeuvre.titre }}
+                           </td>
+                           <td>
+                               {{ oeuvre.dimensions }}
+                           </td>
+                           <td>
+                               <img alt="" src="{{ asset ('assets/images/'~oeuvre.photo) }}" class="post-detail-img-left img-tableau-de-bord" />
+                           </td>
+                           <td>
+                               {{ oeuvre.prix }}
+                           </td>
+                           <td>
+                               <a href="{{ path('removeInPanier', {
+                                   'id': oeuvre.id
+                               }) }}"><i class="fas fa-trash-alt"></i></a>
+                           </td>
                        </tr>
-
                  {% endfor %}
-                       {#</tbody>#}
                    </table>
             </div>
 
         </div>
+    </div>
+
 
     {% else %}
         <div>
-               <h1>Panier est vide!</h1>
+           <h3 class="text-center m-5 panier_vide">Votre panier est vide !</h3>
         </div>
     {% endif %}
     </div>
