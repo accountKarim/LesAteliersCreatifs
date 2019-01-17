@@ -2,16 +2,108 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65a459b8-97ad-491c-9b36-8e07e1c149b5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/composerJson.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/doctrine/Categories.orm.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/doctrine/Membres.orm.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/doctrine/MigrationVersions.orm.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/doctrine/Oeuvres.orm.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/Claire-de-Lune-Acrylique.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/Famille-elephant-Fusain-et-crayon-Cadre-57x75cm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/gitigit.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/hugo-bleu.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/janna.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/lasad.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/tehut.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/temir.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/temir05.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/temir07.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/temir123.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/temir458585.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/teseh-hr-h-h-h-h-h-h-h.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/teseh.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/tilgytgy.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/desktop.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/font-awesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/font-awesome.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/main.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/main.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/normalize.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/normalize.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/owl.carousel.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/owl.carousel.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/scss/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/scss/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/scss/desktop.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/desktop.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/product/hugo-bleu.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/product/lasad.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/product/teseh-hr-h-h-h-h-h-h-h.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/desktop.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/jquery.matchHeight.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/owl.carousel.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ContactController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/GallerieController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/HelperTrait.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/OeuvresController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/PanierController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Contact.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/ContactType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/OeuvresFormType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/ContactRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Gallerie/gallerie.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/contact/contact.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/layout.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pages/boutique.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pages/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pages/form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pages/oeuvre.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pages/panier.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/security/inscription.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/LesAteliersCreatifs.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Contact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/images/Claire-de-Lune-Acrylique.xcf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Oeuvres/CategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Oeuvres/CategoriesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Security/MembreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Security/MembreController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Categories.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Membres.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Membres.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Oeuvres.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Oeuvres.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/MembreType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/MembreType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190116100843.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/components/_menu.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/_menu.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact/contact.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact/contact.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/panier.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/panier.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pages/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/home.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/register.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,69 +130,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/pages/form.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4275">
-              <caret line="171" column="54" selection-start-line="171" selection-start-column="54" selection-end-line="171" selection-end-column="54" />
-              <folding>
-                <element signature="e#12#28#0#Twig" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/components/_menu.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="42" column="70" selection-start-line="42" selection-start-column="70" selection-end-line="42" selection-end-column="70" />
-              <folding>
-                <element signature="e#2346#2352#0#Twig" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/security/register.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#12#26#0#Twig" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/pages/panier.html.twig">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Security/MembreController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="501">
+              <caret line="115" column="88" selection-start-line="115" selection-start-column="84" selection-end-line="115" selection-end-column="88" />
               <folding>
-                <element signature="e#49#63#0#Twig" expanded="true" />
-                <element signature="e#424#436#0#Twig" expanded="true" />
-                <element signature="e#1389#1403#0#Twig" expanded="true" />
+                <element signature="e#42#65#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/contact/contact.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="17" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/assets/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="593">
-              <caret line="186" column="25" selection-start-line="186" selection-start-column="25" selection-end-line="186" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -261,111 +298,32 @@
     <option name="width" value="1040" />
     <option name="height" value="744" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
+      <pane id="ProjectPane" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
             <path>
-              <item name="LesAteliersCreatifs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LesAteliersCreatifs" type="462c0819:PsiDirectoryNode" />
+              <item name="LesAteliersCreatifs" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
             </path>
             <path>
-              <item name="LesAteliersCreatifs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LesAteliersCreatifs" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="LesAteliersCreatifs" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
-              <item name="LesAteliersCreatifs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LesAteliersCreatifs" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="doctrine" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LesAteliersCreatifs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LesAteliersCreatifs" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LesAteliersCreatifs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LesAteliersCreatifs" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LesAteliersCreatifs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LesAteliersCreatifs" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LesAteliersCreatifs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LesAteliersCreatifs" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LesAteliersCreatifs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LesAteliersCreatifs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LesAteliersCreatifs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LesAteliersCreatifs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LesAteliersCreatifs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LesAteliersCreatifs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Form" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LesAteliersCreatifs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LesAteliersCreatifs" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LesAteliersCreatifs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LesAteliersCreatifs" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LesAteliersCreatifs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LesAteliersCreatifs" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="contact" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LesAteliersCreatifs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LesAteliersCreatifs" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="Gallerie" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LesAteliersCreatifs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LesAteliersCreatifs" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LesAteliersCreatifs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LesAteliersCreatifs" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LesAteliersCreatifs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LesAteliersCreatifs" type="462c0819:PsiDirectoryNode" />
-              <item name="var" type="462c0819:PsiDirectoryNode" />
+              <item name="LesAteliersCreatifs" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Migrations" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -416,12 +374,33 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89114000" />
+    <option name="totallyTimeSpent" value="89150000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49945828" visible="true" weight="0.2521322" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49945828" visible="true" weight="0.14392324" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" sideWeight="0.5005417" side_tool="true" weight="0.25266525" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.094444446" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.17666666" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.787013" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32995737" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49945828" visible="true" weight="0.2468017" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5005417" side_tool="true" weight="0.25266525" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -434,24 +413,18 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.17666666" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.17777778" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.787013" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" weight="0.32995737" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/doctrine_migrations.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/framework.yaml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -508,15 +481,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Security/MembreController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#42#65#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Membres.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -696,15 +660,7 @@
     <entry file="file://$PROJECT_DIR$/src/Form/ContactType.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/contact.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/contact.html.twig" />
     <entry file="file://$PROJECT_DIR$/templates/security/login.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -763,6 +719,22 @@
             <element signature="e#49#63#0#Twig" expanded="true" />
             <element signature="e#424#436#0#Twig" expanded="true" />
             <element signature="e#1389#1403#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20190116100843.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20190116142928.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Security/MembreController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="115" column="88" selection-start-line="115" selection-start-column="84" selection-end-line="115" selection-end-column="88" />
+          <folding>
+            <element signature="e#42#65#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

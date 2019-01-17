@@ -13,6 +13,7 @@ use App\Controller\HelperTrait;
 use App\Entity\Categories;
 use App\Entity\Oeuvres;
 use App\Form\OeuvresFormType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -27,6 +28,7 @@ class OeuvresController extends AbstractController
 
     /**
      * Formulaire pour ajouter un article
+     * @Security("is_granted('ROLE_ADMIN')")
      * @Route("/creer-une-oeuvre", name="oeuvre_new")
      * @Route("/oeuvre/edit/{categories}/{id}", name="oeuvre_edit")
      * @param Oeuvres $oeuvre
@@ -90,6 +92,7 @@ class OeuvresController extends AbstractController
 
 
     /**
+     * @Security("is_granted('ROLE_ADMIN')")
      * @Route("/oeuvre/delete/{id}", name="delete_oeuvre", methods={"GET","POST"})
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
@@ -110,6 +113,7 @@ class OeuvresController extends AbstractController
     }
 
     /**
+     * @Security("is_granted('ROLE_ADMIN')")
      * @Route("/oeuvres", name="oeuvres")
      * @Route("/messages", name="messages")
      * * @Route("/membres", name="membres")
@@ -121,7 +125,7 @@ class OeuvresController extends AbstractController
 
 
     /**
-     *
+     * @Security("is_granted('ROLE_ADMIN')")
      * @Route("/oeuvre/{id}.html",
      * name="show_ouevre")
      *

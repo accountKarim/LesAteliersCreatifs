@@ -18,6 +18,17 @@ li, a {
     list-style-type: none;
 }
 
+a.link {
+    text-decoration: none;
+    opacity: 0.8;
+    font-size: 1.6rem;
+    font-family: sans-serif;
+}
+
+label {
+    font-size: 1.6rem;
+}
+
 /* div.img img {
     width: 100%;
     height: 100% !important;
@@ -67,7 +78,7 @@ nav li div a {
 }
 
 nav div ul li div.compte {
-    margin-left: -6rem;
+    margin-left: -1rem;
 }
 
 nav ul li div.categories-gallerie {
@@ -154,8 +165,31 @@ input.form-control {
     font-size: 17px;
     border-radius: 5px;
 }
+
+/* *********** message d'alert ************** */
+
+.alert {
+    border-radius: 5px;
+    font-size: 17px;
+    line-height: 4rem;
+}
+
+.alert button.close {
+    outline: none;
+    font-size: 33px;
+    font-weight: 600;
+}
+
+
+/* *********** Table ************** */
+
+table th {
+    font-size: 1.5rem;
+}
 form {
-    background-color:#9a7078;
+    background-color:#4950570f;
+    padding: 2.5rem;
+    border-radius: 0.6rem;
 
 }
 /* *********** Form login-connexion ************** */
