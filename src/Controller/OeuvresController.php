@@ -97,7 +97,7 @@ class OeuvresController extends AbstractController
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function delete($id): \Symfony\Component\HttpFoundation\RedirectResponse
+    public function deleteOeuvre($id): \Symfony\Component\HttpFoundation\RedirectResponse
     {
         $entityManager = $this->getDoctrine()->getManager();
         $oeuvre = $entityManager->getRepository(Oeuvres::class)->find($id);

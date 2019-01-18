@@ -49,6 +49,7 @@ class Oeuvres
      * @var string
      *
      * @ORM\Column(name="techniques",  length=20, nullable=false)
+     * @Assert\NotBlank(message="Vous devez saisir un techniques!")
      *
      */
     private $techniques;
@@ -59,6 +60,7 @@ class Oeuvres
      *     mimeTypesMessage="Verifies le format de votre image!",
      *     maxSize="5M", maxSizeMessage="Attention, votre image est trop lourde"
      * )
+     * @Assert\NotBlank(message="Vous devez saisir une photo!")
      */
     private $photo;
 

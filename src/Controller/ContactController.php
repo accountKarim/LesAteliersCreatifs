@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Contact;
+use App\Entity\Membres;
 use App\Form\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -45,22 +46,20 @@ class ContactController extends AbstractController
     }
 
     /**
-     * @Route("/oeuvre/delete/{id}", name="delete_message", methods={"GET","POST"})
+     * @Route("/oeuvre/message/{id}", name="delete_message", methods={"GET","POST"})
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function delete($id): \Symfony\Component\HttpFoundation\RedirectResponse
+    public function delete_message($id): \Symfony\Component\HttpFoundation\RedirectResponse
     {
         $entityManager = $this->getDoctrine()->getManager();
         $contact = $entityManager->getRepository(Contact::class)->find($id);
 
-
+//dump($contact);
+//die();
         $entityManager->remove($contact);
-
         $entityManager->flush();
 
-        return $this->redirectToRoute('messages', [
-            'id' => $contact->getId()
-        ]);
+        return $this->redirectToRoute('messages');
     }
 }

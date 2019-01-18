@@ -221,5 +221,24 @@ class MembreController extends AbstractController {
         ]);
 
     }
+    /**
+     * @Route("/membre/{id}", name="delete_membre", methods={"GET","POST"})
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function delete_membre($id): \Symfony\Component\HttpFoundation\RedirectResponse
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $contact = $entityManager->getRepository(Membres::class)->find($id);
+
+//dump($contact);
+//die();
+        $entityManager->remove($contact);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('membres');
+    }
+
+
 
 }
